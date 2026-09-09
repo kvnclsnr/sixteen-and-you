@@ -1,0 +1,5 @@
+@use "../abstract/functions" as *;
+
+::selection {
+  background-color: translucent(var(--accent), 25%);
+}

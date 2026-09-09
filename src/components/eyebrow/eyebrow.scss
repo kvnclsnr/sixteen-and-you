@@ -1,0 +1,12 @@
+@use "../../styles/abstract/variables" as *;
+
+.eyebrow {
+  font-family: $mono;
+  font-size: $t-s;
+  letter-spacing: 0.5px;
+  color: var(--text-subtle);
+  
+  &.accent {
+    color: var(--accent);
+  }
+}

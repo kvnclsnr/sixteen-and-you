@@ -1,0 +1,34 @@
+@use "../../styles/abstract/mixins" as *;
+@use "../../styles/abstract/variables" as *;
+
+.branding {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  .logo {
+    @include flex-center;
+    --size: 2.25rem;
+    
+    height: var(--size);
+    width: var(--size);
+    background-color: var(--accent);
+    border-radius: 50%;
+    
+    .icon {
+      --size-icon: 1rem;
+      
+      height: var(--size-icon);
+      width: var(--size-icon);
+      color: var(--text-on-accent);
+      fill: currentColor;
+      stroke: currentColor;
+    }
+  }
+  
+  .name {
+    font-family: $serif;
+    font-size: $t-l;
+    font-weight: 500;
+  }
+}

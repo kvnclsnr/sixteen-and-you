@@ -1,0 +1,21 @@
+@use "../../styles/abstract/mixins" as *;
+@use "../../styles/abstract/variables" as *;
+
+.theme-button {
+  @include flex-center;
+  --size: 2.25rem;
+  
+  height: var(--size);
+  width: var(--size);
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+  border-radius: 50%;
+  
+  .icon {
+    --size-icon: 18px;
+    
+    color: var(--text);
+    height: var(--size-icon);
+    width: var(--size-icon);
+  }
+}

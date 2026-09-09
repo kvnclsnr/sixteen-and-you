@@ -1,0 +1,51 @@
+@use "../../styles/abstract/variables" as *;
+
+#root {
+  padding-inline: 12rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  margin-bottom: 5rem;
+}
+
+@media screen and (max-width: 1400px) {
+  #root {
+    padding-inline: 8rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #root {
+    padding-inline: 6rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #root {
+    padding-inline: 3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #root {
+    padding-inline: 2rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #root {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 384px) {
+  #root {
+    padding-inline: 1rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #root {
+    padding-inline: 0.5rem;
+  }
+}

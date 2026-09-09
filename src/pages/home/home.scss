@@ -1,0 +1,7 @@
+@use "../../styles/abstract/functions" as *;
+
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}

@@ -1,0 +1,54 @@
+@use "../../styles/abstract/variables" as *;
+
+.time {
+  width: 4.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  
+  strong {
+    font-family: $serif;
+    font-size: $t-6xl;
+    font-weight: 400;
+  }
+  
+  span {
+    font-family: $mono;
+    font-size: $t-xs;
+    letter-spacing: 0.5px;
+    color: var(--text-subtle);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .time {
+    strong {
+      font-size: $t-5xl;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .time {
+    strong {
+      font-size: $t-4xl;
+    }
+    
+    span {
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+@media screen and (max-width: 384px) {
+  .time {
+    strong {
+      font-size: $t-2xl;
+    }
+    
+    span {
+      letter-spacing: 0;
+    }
+  }
+}

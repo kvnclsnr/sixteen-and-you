@@ -1,0 +1,50 @@
+:root, html[data-theme = "light"] {
+  --background:     #f7f4f1;
+  --surface:        #fefdfc;
+  
+  --text:           #241f2b;
+  --text-muted:     #5c5563;
+  --text-subtle:    #938c99;
+  
+  --border:         #e7e0da;
+  --border-strong:  #d8cfd8;
+  
+  --accent:         #a561d6;
+  
+  --text-on-accent: #ffffff;
+}
+
+html[data-theme = "dark"] {
+  --background:     #100c16;
+  --surface:        #191320;
+  
+  --text:           #f2ecf5;
+  --text-muted:     #b2a7bd;
+  --text-subtle:    #726a7d;
+  
+  --border:         #29222f;
+  --border-strong:  #382e42;
+  
+  --accent:         #b878e4;
+  
+  --text-on-accent: #17101f;
+}
+
+$sans: "Inter", sans-serif;
+$serif: "Fraunces", serif;
+$mono: "JetBrainsMono", monospace;
+
+$page-padding: clamp(1rem, 5vw, 5rem);
+
+$t-2xs: 0.625rem;
+$t-xs: 0.75rem;
+$t-s: 0.875rem;
+$t-m: 1rem;
+$t-l: 1.25rem;
+$t-xl: 1.5rem;
+$t-2xl: 2rem;
+$t-3xl: 2.5rem;
+$t-4xl: 3rem;
+$t-5xl: 3.75rem;
+$t-6xl: 4.5rem;
+$t-7xl: 5.5rem;

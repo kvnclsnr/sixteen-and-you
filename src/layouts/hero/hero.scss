@@ -1,0 +1,40 @@
+@use "../../styles/abstract/variables" as *;
+@use "../../styles/abstract/mixins" as *;
+
+.hero {
+  margin-block-start: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  
+  h1 {
+    color: var(--text);
+    line-height: 0.85;
+    max-width: 7ch;
+    font-family: $serif;
+    font-weight: 400;
+    font-size: $t-7xl;
+    
+    span {
+      line-height: 0.85;
+      color: var(--accent);
+    }
+  }
+  
+  .description {
+    margin-top: 1rem;
+    max-width: 32ch;
+    text-wrap: pretty;
+    font-size: $t-l;
+    font-family: $sans;
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+  
+  .lead {
+    text-wrap: pretty;
+    font-size: $t-m;
+    font-family: $serif;
+    color: var(--text-subtle);
+  }
+}

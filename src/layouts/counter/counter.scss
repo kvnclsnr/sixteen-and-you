@@ -1,0 +1,37 @@
+@use "../../styles/abstract/variables" as *;
+@use "../../styles/abstract/functions" as *;
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  
+  .wrapper {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    
+    .dot {
+      --size: 0.5rem;
+      
+      flex: none;
+      height: var(--size);
+      width: var(--size);
+      background-color: translucent(var(--accent), 50%);
+      transform: translateY(- calc(($t-xs + 0.5rem) / 2));
+      border-radius: 50%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .counter .wrapper {
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .counter .dot {
+    display: none;
+  }
+}
