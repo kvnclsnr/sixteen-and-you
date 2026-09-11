@@ -39,7 +39,7 @@ export const Player = () => {
       
       <audio
         ref = {audioRef}
-        src = "./src/assets/audios/FEEL_ME.mp3"
+        src = "./audios/FEEL_ME.mp3"
         onLoadedMetadata = {() => {
           if (audioRef.current) {
             setDuration(audioRef.current.duration);
