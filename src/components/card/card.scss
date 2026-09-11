@@ -3,6 +3,18 @@
 @use "../../styles/abstract/variables" as *;
 
 .card {
+  transform-origin: bottom center;
+  transition:
+    transform 400ms ease,
+    opacity 400ms ease;
+  
+  &.active {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+}
+
+.card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -10,7 +22,7 @@
   gap: 1.5rem;
   padding: 1.5rem;
   border-radius: 1.5rem;
-  border: 1px solid var(--border-strong);
+  user-select: none;
   
   &-header {
     align-self: stretch;
@@ -24,15 +36,11 @@
       
       height: var(--size);
       width: var(--size);
-      background-color: translucent(var(--accent), 10%);
       border-radius: 35%;
-      border: 1px solid var(--accent);
       
       .icon {
         --size-icon: 1.25rem;
         
-        stroke-width: 1.5;
-        color: var(--accent);
         height: var(--size-icon);
         width: var(--size-icon);
       }
@@ -42,11 +50,8 @@
       font-family: $mono;
       font-size: $t-xs;
       letter-spacing: 0.5px;
-      color: var(--accent);
       padding: 6px 10px;
-      background-color: translucent(var(--accent), 10%);
-      border-radius: calc(($t-2xs + 12px) / 2);
-      border: 1px solid var(--accent);
+      border-radius: calc(($t-xs + 12px) / 2);
     }
   }
   
@@ -64,7 +69,6 @@
     }
     
     .num {
-      color: var(--text);
       font-weight: 400;
       font-size: $t-5xl;
       line-height: 0.9;
@@ -80,16 +84,26 @@
   }
   
   &-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    
+    .icon {
+      --size: 1rem;
+      
+      height: var(--size);
+      width: var(--size);
+    }
     
     span {
       font-size: $t-m;
       font-family: $sans;
-      color: var(--accent);
     }
   }
 }
 
 .card.locked {
+  cursor: default;
   filter: opacity(0.5);
   border: 1px dashed var(--border);
   
@@ -118,6 +132,10 @@
   }
   
   .card-footer {
+    .icon {
+      color: var(--text-subtle);
+    }
+    
     span {
       color: var(--text-subtle);
     }
@@ -152,6 +170,10 @@
   }
   
   .card-footer {
+    .icon {
+      color: var(--accent);
+    }
+    
     span {
       color: var(--text-muted);
     }
@@ -159,7 +181,7 @@
 }
 
 .card.unlocked {
-  border: 1px solid var(--accent);
+  border: 1px solid translucent(var(--accent), 40%);
   
   .card-header {
     
@@ -186,6 +208,10 @@
   }
   
   .card-footer {
+    .icon {
+      color: var(--accent);
+    }
+    
     span {
       color: var(--accent);
     }
@@ -225,6 +251,10 @@
   }
   
   .card-footer {
+    .icon {
+      color: var(--accent);
+    }
+    
     span {
       color: var(--accent);
     }

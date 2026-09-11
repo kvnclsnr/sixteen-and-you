@@ -5,9 +5,13 @@ export const Branding = () => {
   return (
     <div className = "branding">
       
+      {/* LOGO */}
+      
       <div className = "logo">
         <Icon iconName = {ICONS.HEART}></Icon>
       </div>
+      
+      {/* NAME */}
       
       <span className = "name">Sixteen & You</span>
       

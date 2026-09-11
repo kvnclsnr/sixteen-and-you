@@ -1,11 +1,7 @@
 import { Eyebrow, Time } from "../../components/components.tsx";
 
-import { useEffect, useState } from "react";
-import { padNumber } from "../../utils/time.ts";
-
-const UNITS: string[] = ["DÍAS", "HORAS", "MINUTOS", "SEGUNDOS"];
-
-const targetDate: Date = new Date("2026-10-02T00:00:00");
+import { Fragment, useEffect, useState } from "react";
+import { padNumber } from "../../utils/helpers.ts";
 
 interface Countdown {
   days: number;
@@ -13,6 +9,15 @@ interface Countdown {
   mins: number;
   secs: number;
 }
+
+const TIME_UNITS: {key: keyof Countdown, value: string}[] = [
+  {key: "days", value: "DÍAS"},
+  {key: "hours", value: "HORAS"},
+  {key: "mins", value: "MINUTOS"},
+  {key: "secs", value: "SEGUNDOS"},
+];
+
+const targetDate: Date = new Date("2026-10-02T00:00:00");
 
 const getCountdown = (target: Date): Countdown => {
   const diference: number = target.getTime() - Date.now();
@@ -52,23 +57,27 @@ export const Counter = () => {
   
   return (
     <section className = "counter">
+      
+      {/* EYEBROW */}
+      
       <Eyebrow text = "FALTAN" accent/>
+      
+      {/* TIME WRAPPER */}
+      
       <div className = "wrapper">
         {
-          Object.keys(countdown).map((key, index) => {
+          TIME_UNITS.map(({key, value}, index) => {
             return (
-              <>
-              
-              {
-                index > 0 && <div className = "dot"></div>
-              }
-              <Time
-                key = {key}
-                number = {padNumber(countdown[key as keyof typeof countdown])}
-                unit = {UNITS[index]}
-              />
-              
-              </>
+              <Fragment key = {`${key}-fragment`}>
+                
+                {index > 0 ? <div className = "dot"></div> : null}
+                
+                <Time
+                  number = {padNumber(countdown[key])}
+                  unit = {value}
+                />
+                
+              </Fragment>
             );
           })
         }

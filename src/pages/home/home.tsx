@@ -1,5 +1,5 @@
 import { Divider } from "../../components/components";
-import { Counter, Gifts, Header, Hero } from "../../layouts/layouts";
+import { Album, Counter, Footer, Gifts, Header, Hero, Playlist } from "../../layouts/layouts";
 
 export const Home = () => {
   return (
@@ -15,6 +15,18 @@ export const Home = () => {
       <Divider/>
       
       <Gifts/>
+      
+      <Divider/>
+      
+      <Album/>
+      
+      <Divider/>
+      
+      <Playlist/>
+      
+      <Divider/>
+      
+      <Footer/>
     </div>
   );
 };

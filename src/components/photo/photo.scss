@@ -1,0 +1,68 @@
+@use "../../styles/abstract/variables" as *;
+@use "../../styles/abstract/functions" as *;
+
+.photo {
+  outline: 1.5px solid transparent;
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  
+  transition: outline 0.4s ease;
+  
+  img {
+    min-height: 0;
+    min-width: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    scale: 1;
+    will-change: scale;
+    
+    transition: scale 0.4s ease;
+  }
+  
+  .over {
+    opacity: 0;
+    background: linear-gradient(to bottom, transparent, #000000C0);
+    position: absolute;
+    inset: 0;
+    top: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.25rem;
+    padding-block: 0.75rem;
+    
+    transition: opacity 0.4s ease;
+    
+    span {
+      font-family: $mono;
+      font-size: $t-xs;
+      letter-spacing: 0.5px;
+      color: #A0A0A0;
+    }
+    
+    p {
+      font-family: $sans;
+      font-size: $t-s;
+      color: #F7F7F7;
+    }
+  }
+}
+
+.photo:hover {
+  outline: 1.5px solid var(--accent);
+  
+  img {
+    scale: 1.05;
+  }
+  
+  .over {
+    opacity: 1;
+  }
+}

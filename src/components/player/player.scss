@@ -1,0 +1,19 @@
+.player {
+  
+  &-slider {
+    appearance: none;
+    height: 0.5rem;
+    border-radius: 999px;
+    cursor: pointer;
+    
+    &::-webkit-slider-thumb {
+      --size: 1rem;
+      
+      appearance: none;
+      height: var(--size);
+      width: var(--size);
+      border-radius: 50%;
+      background-color: var(--accent);
+    }
+  }
+}

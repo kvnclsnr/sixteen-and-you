@@ -1,31 +1,8 @@
-import { CARD_STATES } from "../../utils/constants.ts";
-import { padNumber } from "../../utils/time.ts";
+import { Fragment } from "react";
+import { CARD_STATES, ICONS } from "../../utils/constants.ts";
 import { Icon } from "../components.tsx";
-
-const getDateByIndex = (index: number) => {
-  interface StartData {
-    DAY: number;
-    MONTH: number;
-  }
-  
-  const START: StartData = {
-    DAY: 17,
-    MONTH: 9,
-  };
-  
-  let result: number = START.DAY + index;
-  
-  let month: string = "SEP";
-  
-  if (index > 13) {
-    result -= 30;
-    month = "OCT";
-  }
-  
-  const day: string = padNumber(result);
-  
-  return `${day} ${month}`;
-};
+import { padNumber } from "../../utils/helpers.ts";
+import { getDateByIndex } from "../../utils/time.ts";
 
 const getStateText = (state: string) => {
   if (state === CARD_STATES.TODAY) {
@@ -43,16 +20,62 @@ const getStateText = (state: string) => {
   return "BLOQUEADO";
 };
 
+const getFooterContent = (state: string, iconName: string, title: string) => {
+  if (state === CARD_STATES.TODAY) {
+    return (
+      <Fragment>
+        <span>Abre aquí</span>
+        <Icon iconName = {ICONS.RIGHT}></Icon>
+      </Fragment>
+    );
+  }
+  
+  else if (state === CARD_STATES.UNLOCKED) {
+    return (
+      <Fragment>
+        <span>Abre aquí</span>
+        <Icon iconName = {ICONS.RIGHT}></Icon>
+      </Fragment>
+    );
+  }
+  
+  else if (state === CARD_STATES.OPENED) {
+    return (
+      <Fragment>
+        <Icon iconName = {iconName}></Icon>
+        <span>{title}</span>
+      </Fragment>
+    );
+  }
+  
+  return (
+    <Fragment>
+      <Icon iconName = {ICONS.LOCKED}></Icon>
+      <span>Próximamente</span>
+    </Fragment>
+  );
+};
+
 interface CardProps {
   state: string;
+  iconName: string;
+  title: string;
   index: number;
+  isActive: boolean;
+  onClick: () => void;
 }
 
-export const Card = ({state, index}: CardProps) => {
+export const Card = ({state, iconName, title, index, isActive, onClick}: CardProps) => {
   return (
-    <button className = {`card ${state}`}>
+    <button
+      className = {`card ${state} ${isActive ? "active" : null}`}
+      onClick = {() => {
+        if (state === CARD_STATES.LOCKED) return;
+        onClick();
+      }}
+    >
       
-      {/* HEAD */}
+      {/* CARD HEADER */}
       
       <div className = "card-header">
         
@@ -64,22 +87,20 @@ export const Card = ({state, index}: CardProps) => {
         
       </div>
       
-      {/* INFO */}
+      {/* CARD INFO */}
       
       <div className = "card-info">
         
         <span className = "tag">DÍA</span>
-        
         <strong className = "num">{padNumber(index + 1)}</strong>
-        
         <span className = "day">{getDateByIndex(index)}</span>
         
       </div>
       
-      {/* FOOD */}
+      {/* CARD FOOTER */}
       
       <div className = "card-footer">
-        <span>Ábreme</span>
+        {getFooterContent(state, iconName, title)}
       </div>
       
     </button>

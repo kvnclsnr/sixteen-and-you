@@ -1,7 +1,7 @@
 @use "../abstract/functions" as *;
 
 .blur {
-  position: absolute;
+  position: fixed;
   z-index: -10;
   border-radius: 50%;
   background-color: translucent(var(--accent), 10%);

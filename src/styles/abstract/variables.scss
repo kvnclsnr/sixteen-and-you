@@ -30,11 +30,15 @@ html[data-theme = "dark"] {
   --text-on-accent: #17101f;
 }
 
+:root {
+  --page-padding:   12rem;
+  --album-columns:  6;
+  --album-gap:      0.75rem;
+}
+
 $sans: "Inter", sans-serif;
 $serif: "Fraunces", serif;
 $mono: "JetBrainsMono", monospace;
-
-$page-padding: clamp(1rem, 5vw, 5rem);
 
 $t-2xs: 0.625rem;
 $t-xs: 0.75rem;
@@ -48,3 +52,48 @@ $t-4xl: 3rem;
 $t-5xl: 3.75rem;
 $t-6xl: 4.5rem;
 $t-7xl: 5.5rem;
+
+@media screen and (max-width: 1400px) {
+  :root {
+    --page-padding: 8rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  :root {
+    --page-padding: 6rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  :root {
+    --page-padding: 3rem;
+    --album-gap: 0.5rem;
+    --album-columns: 4;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --page-padding: 2rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  :root {
+    --page-padding: 1.5rem;
+    --album-columns: 2;
+  }
+}
+
+@media screen and (max-width: 384px) {
+  :root {
+    --page-padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  :root {
+    --page-padding: 0.5rem;
+  }
+}

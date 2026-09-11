@@ -5,7 +5,7 @@
   flex-direction: column;
   gap: 2rem;
   
-  .head {
+  &-header {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -92,7 +92,7 @@
     }
   }
   
-  .grid-cards {
+  &-grid {
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(4, 1fr);
@@ -101,14 +101,14 @@
 }
 
 @media screen and (max-width: 880px) {
-  .gifts .grid-cards {
+  .gifts .gifts-grid {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(8, 1fr);
   }
 }
 
 @media screen and (max-width: 320px) {
-  .gifts .grid-cards {
+  .gifts .gifts-grid {
     gap: 0.5rem;
   }
 }
