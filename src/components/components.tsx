@@ -5,9 +5,9 @@ import { ThemeButton } from "./themeButton/themeButton.tsx";
 import { Eyebrow } from "./eyebrow/eyebrow.tsx";
 import { Time } from "./time/time.tsx";
 import { Card } from "./card/card.tsx";
-import { Letter } from "./letter/letter.tsx";
 import { Photo } from "./photo/photo.tsx";
 import { Player } from "./player/player.tsx";
 import { Song } from "./song/song.tsx";
+import { Modal } from "./modal/modal.tsx";
 
-export { Icon, Divider, Branding, ThemeButton, Eyebrow, Time, Card, Letter, Photo, Player, Song };
+export { Icon, Divider, Branding, ThemeButton, Eyebrow, Time, Card, Photo, Player, Song, Modal };

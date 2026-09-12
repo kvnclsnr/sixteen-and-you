@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { Icon } from "../components";
+import { ICONS } from "../../utils/constants";
 
 interface PlayerProps {
   coverName: string;
@@ -103,17 +104,17 @@ export const Player = ({coverName, title, artist}: PlayerProps) => {
       
       <div className = "player-actions">
         <button>
-          <Icon iconName = "prev" fill/>
+          <Icon iconName = {ICONS.PREV} fill/>
         </button>
         <button className = "" onClick = {togglePlay}>
           {
             isPlaying
-            ? <Icon iconName = "pause" fill/>
-            : <Icon iconName = "play" fill/>
+            ? <Icon iconName = {ICONS.PAUSE} fill/>
+            : <Icon iconName = {ICONS.PLAY} fill/>
           }
         </button>
         <button>
-          <Icon iconName = "next" fill/>
+          <Icon iconName = {ICONS.NEXT} fill/>
         </button>
       </div>
       

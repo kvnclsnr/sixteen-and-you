@@ -261,20 +261,6 @@
   }
 }
 
-// @keyframes background-pulse {
-//   0% {
-//     background-color: color-mix(in srgb, var(--surface) 97.5%, var(--accent));
-//   }
-  
-//   50% {
-//     background-color: color-mix(in srgb, var(--surface) 92.5%, var(--accent));
-//   }
-  
-//   100% {
-//     background-color: color-mix(in srgb, var(--surface) 97.5%, var(--accent));
-//   }
-// }
-
 @media screen and (max-width: 1200px) {
   .card {
     padding: 1.25rem;

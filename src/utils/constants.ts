@@ -19,23 +19,39 @@ export const THEMES: Themes = {
 interface Icons {
   DARK: string;
   LIGHT: string;
-  HEART: string;
+  
   LOCKED: string;
   UNLOCKED: string;
   OPENED: string;
   TODAY: string;
+  
+  PREV: string;
+  NEXT: string;
+  PAUSE: string;
+  PLAY: string;
+  
+  HEART: string;
   RIGHT: string;
+  EXIT: string;
 }
 
 export const ICONS: Icons = {
   DARK: "dark",
   LIGHT: "light",
-  HEART: "heart",
+  
   LOCKED: "locked",
   UNLOCKED: "unlocked",
   OPENED: "opened",
   TODAY: "today",
+  
+  PREV: "prev",
+  NEXT: "next",
+  PAUSE: "pause",
+  PLAY: "play",
+  
+  HEART: "heart",
   RIGHT: "right",
+  EXIT: "exit",
 };
 
 // STATES

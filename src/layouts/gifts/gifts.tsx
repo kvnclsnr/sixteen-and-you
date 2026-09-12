@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Card, Eyebrow } from "../../components/components.tsx";
+import { Card, Eyebrow, Modal } from "../../components/components.tsx";
 import { CARD_STATES, ICONS } from "../../utils/constants.ts";
 
 export const Gifts = () => {
   const completed: number = 7;
   
-  const [active, setActive] = useState<number | null>(null);
+  const [ active, setActive ] = useState<number | null>(null);
+  const [ isModalActive, setIsModalActive ] = useState<boolean>(true);
   
   return (
     <section className = "gifts">
@@ -39,12 +40,12 @@ export const Gifts = () => {
       </div>
       
       <div className = "gifts-grid">
-        <Card state = {CARD_STATES.OPENED} iconName = {ICONS.DARK} title = "Una canción" index = {0} isActive = {active === 0} onClick = {() => setActive(0)}/>
-        <Card state = {CARD_STATES.OPENED} iconName = {ICONS.DARK} title = "Una canción" index = {1} isActive = {active === 1} onClick = {() => setActive(1)}/>
-        <Card state = {CARD_STATES.OPENED} iconName = {ICONS.DARK} title = "Una canción" index = {2} isActive = {active === 2} onClick = {() => setActive(2)}/>
-        <Card state = {CARD_STATES.UNLOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {3} isActive = {active === 3} onClick = {() => setActive(3)}/>
-        <Card state = {CARD_STATES.UNLOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {4} isActive = {active === 4} onClick = {() => setActive(4)}/>
-        <Card state = {CARD_STATES.TODAY} iconName = {ICONS.DARK} title = "Una canción" index = {5} isActive = {active === 5} onClick = {() => setActive(5)}/>
+        <Card state = {CARD_STATES.OPENED} iconName = {ICONS.DARK} title = "Una canción" index = {0} isActive = {active === 0} onClick = {() => { setActive(0); setIsModalActive(true); }}/>
+        <Card state = {CARD_STATES.OPENED} iconName = {ICONS.DARK} title = "Una canción" index = {1} isActive = {active === 1} onClick = {() => { setActive(1); setIsModalActive(true); }}/>
+        <Card state = {CARD_STATES.UNLOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {2} isActive = {active === 2} onClick = {() => { setActive(2); setIsModalActive(true); }}/>
+        <Card state = {CARD_STATES.UNLOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {3} isActive = {active === 3} onClick = {() => { setActive(3); setIsModalActive(true); }}/>
+        <Card state = {CARD_STATES.UNLOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {4} isActive = {active === 4} onClick = {() => { setActive(4); setIsModalActive(true); }}/>
+        <Card state = {CARD_STATES.TODAY} iconName = {ICONS.DARK} title = "Una canción" index = {5} isActive = {active === 5} onClick = {() => { setActive(5); setIsModalActive(true); }}/>
         <Card state = {CARD_STATES.LOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {6} isActive = {active === 6} onClick = {() => setActive(6)}/>
         <Card state = {CARD_STATES.LOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {7} isActive = {active === 7} onClick = {() => setActive(7)}/>
         <Card state = {CARD_STATES.LOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {8} isActive = {active === 8} onClick = {() => setActive(8)}/>
@@ -56,6 +57,10 @@ export const Gifts = () => {
         <Card state = {CARD_STATES.LOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {14} isActive = {active === 14} onClick = {() => setActive(14)}/>
         <Card state = {CARD_STATES.LOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {15} isActive = {active === 15} onClick = {() => setActive(15)}/>
       </div>
+      
+      <Modal iconName = "dark" index = {0} isOpen = {isModalActive} onClose = {() => {setIsModalActive(false); setActive(null); }} title = "EL INICIO">
+        
+      </Modal>
       
     </section>
   );

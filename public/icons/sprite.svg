@@ -95,4 +95,10 @@
     <path d = "M13 6l6 6" />
   </symbol>
   
+  <!-- EXIT -->
+  <symbol id = "icon-exit" viewBox = "0 0 24 24">
+    <path d = "M18 6l-12 12" />
+    <path d = "M6 6l12 12" />
+  </symbol>
+  
 </svg>
