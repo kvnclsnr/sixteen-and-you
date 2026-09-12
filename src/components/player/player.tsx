@@ -117,8 +117,6 @@ export const Player = ({coverName, title, artist}: PlayerProps) => {
         </button>
       </div>
       
-      <div className = "player-divider"></div>
-      
     </div>
   );
 };

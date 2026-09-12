@@ -38,3 +38,19 @@
     color: var(--text-subtle);
   }
 }
+
+@media screen and (max-width: 320px) {
+  .hero {
+    h1 {
+      font-size: $t-6xl;
+    }
+    
+    .description {
+      font-size: $t-m;
+    }
+    
+    .lead {
+      font-size: $t-s;
+    }
+  }
+}

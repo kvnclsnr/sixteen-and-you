@@ -239,3 +239,15 @@
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  .album .album-header {
+    h2 {
+      font-size: $t-3xl;
+    }
+    
+    p {
+      font-size: $t-m;
+    }
+  }
+}

@@ -8,6 +8,8 @@
   padding: 0.75rem;
   border-radius: 1.25rem;
   
+  transition: background-color 0.25s ease;
+  
   &:hover {
     background-color: translucent(var(--text), 5%);
   }
@@ -45,5 +47,54 @@
   
   &-duration {
     color: var(--text-muted);
+    font-family: $mono;
+    font-size: $t-s;
+    letter-spacing: 0.5px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .song {
+    
+    &-cover {
+      width: 3.5rem;
+    }
+    
+    &-info {
+      h3 {
+        font-size: $t-m;
+      }
+      
+      span {
+        font-size: $t-xs;
+      }
+    }
+    
+    &-duration {
+      font-size: $t-xs;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .song {
+    
+    .song-cover {
+      width: 3rem;
+    }
+    
+    .info {
+      h3 {
+        font-size: $t-s;
+      }
+      
+      span {
+        font-size: $t-2xs;
+      }
+    }
+    
+    &-duration {
+      font-size: $t-2xs;
+    }
   }
 }

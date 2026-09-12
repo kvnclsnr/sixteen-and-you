@@ -65,6 +65,7 @@
   &-actions {
     display: flex;
     gap: 2rem;
+    margin-block: 0.5rem 1rem;
     
     button {
       
@@ -76,22 +77,36 @@
       }
     }
   }
-  
-  &-divider {
-    height: 1px;
-    width: 100%;
-    background: linear-gradient(
-      to right,
-      translucent(var(--border-strong), 25%),
-      translucent(var(--border-strong), 100%),
-      translucent(var(--border-strong), 25%),
-    );
-  }
 }
 
 @media screen and (max-width: 1200px) {
   .player .player-image {
     max-width: 20rem;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .player .player-image {
+    max-width: 25rem;
+  }
+}
+
+@media screen and (max-width: 384px) {
+  .player .player-actions button .icon {
+    height: 2rem;
+    width: 2rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .player .player-info {
+    h3 {
+      font-size: $t-l;
+    }
+    
+    span {
+      font-size: $t-s;
+    }
   }
 }
 
@@ -108,9 +123,7 @@
   
 }
 
-@media screen and (max-width: 384px) {
-  
-}
+
 
 @media screen and (max-width: 320px) {
   

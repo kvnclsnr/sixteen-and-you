@@ -35,6 +35,43 @@
       padding-block: 0.75rem;
       display: flex;
       flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .playlist .playlist-wrapper {
+    gap: 3rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .playlist .playlist-wrapper {
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .playlist .playlist-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  
+  .list {
+    align-self: stretch;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .playlist .playlist-header {
+    h2 {
+      font-size: $t-3xl;
+    }
+    
+    p {
+      font-size: $t-m;
     }
   }
 }
