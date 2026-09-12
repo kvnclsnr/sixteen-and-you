@@ -25,4 +25,16 @@
       color: var(--text-muted);
     }
   }
+  
+  &-wrapper {
+    display: flex;
+    gap: 4rem;
+    
+    .list {
+      flex: auto;
+      padding-block: 0.75rem;
+      display: flex;
+      flex-direction: column;
+    }
+  }
 }

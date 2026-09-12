@@ -21,7 +21,7 @@ export const Gifts = () => {
           <div className = "dots">
             {
               [...Array(16)].map((_, index) => (
-                <div key = {index} className = {`dot ${index < completed ? "accent" : null}`}></div>
+                <div key = {index} className = {`dot ${index < completed ? "accent" : ""}`}></div>
               ))
             }
           </div>

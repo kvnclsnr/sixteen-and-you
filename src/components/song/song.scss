@@ -1,0 +1,49 @@
+@use "../../styles/abstract/variables" as *;
+@use "../../styles/abstract/functions" as *;
+
+.song {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 1.25rem;
+  
+  &:hover {
+    background-color: translucent(var(--text), 5%);
+  }
+  
+  &-cover {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+    width: 4rem;
+    border-radius: 0.5rem;
+  }
+  
+  &-info {
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 0.375rem;
+    
+    h3 {
+      font-family: $serif;
+      font-weight: 500;
+      font-size: $t-l;
+      color: var(--text);
+    }
+    
+    span {
+      font-family: $sans;
+      font-weight: 400;
+      font-size: $t-s;
+      color: var(--text-muted);
+    }
+  }
+  
+  &-duration {
+    color: var(--text-muted);
+  }
+}

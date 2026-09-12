@@ -2,9 +2,9 @@
 @use "../../styles/abstract/functions" as *;
 
 .photo {
-  outline: 1.5px solid transparent;
+  outline: 2px solid transparent;
   position: relative;
-  border-radius: 1rem;
+  border-radius: 1.5rem;
   overflow: hidden;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -56,7 +56,7 @@
 }
 
 .photo:hover {
-  outline: 1.5px solid var(--accent);
+  outline: 2px solid var(--accent);
   
   img {
     scale: 1.05;

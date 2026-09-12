@@ -1,4 +1,4 @@
-import { Eyebrow, Player } from "../../components/components.tsx";
+import { Eyebrow, Player, Song } from "../../components/components.tsx";
 
 export const Playlist = () => {
   return (
@@ -11,7 +11,10 @@ export const Playlist = () => {
       </div>
       
       <div className = "playlist-wrapper">
-        <Player></Player>
+        <Player coverName = "us" title = "Te Amo Mucho" artist = "Kevin Celis"/>
+        <div className = "list">
+          <Song coverName = "us" title = "Te Amo Mucho" artist = "Kevin Celis" duration = {120}/>
+        </div>
       </div>
       
     </section>
