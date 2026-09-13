@@ -1,0 +1,118 @@
+@use "../../styles/abstract/variables" as *;
+@use "../../styles/abstract/functions" as *;
+@use "../../styles/abstract/mixins" as *;
+
+.outer-viewer-button {
+  @include flex-center;
+  
+  position: absolute;
+  background-color: translucent(#f2ecf5, 10%);
+  backdrop-filter: 0.5rem;
+  border: 1px solid translucent(#f2ecf5, 10%);
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+  top: 1rem;
+  right: 1rem;
+  color: #b2a7bd;
+  
+  transition: background-color 0.25s ease, color 0.25s ease;
+  
+  &:hover {
+    background-color: translucent(#f2ecf5, 17.5%);
+    color: #f2ecf5;
+  }
+  
+  .icon {
+    --icon-size: 1.5rem;
+    
+    height: var(--icon-size);
+    width: var(--icon-size);
+  }
+}
+
+.photo-viewer {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 0 1rem 0 #00000050;
+  width: 100%;
+  max-width: 25rem;
+  
+  &__photo {
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 3 / 4;
+    border-radius: 0.5rem;
+  }
+  
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    
+    .eyebrow {
+      font-size: $t-xs;
+    }
+    
+    h3 {
+      font-size: $t-2xl;
+      font-family: $serif;
+      font-weight: 400;
+    }
+    
+    p {
+      text-wrap: pretty;
+      font-size: $t-m;
+      font-family: $sans;
+      line-height: 1.5;
+      color: var(--text-muted);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .photo-viewer {
+    max-width: 22.5rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .photo-viewer {
+    max-width: 20rem;
+  }
+}
+
+@media screen and (max-width: 384px) {
+  .photo-viewer {
+    padding: 1rem;
+    gap: 1rem;
+    max-width: 17.5rem;
+    
+    &__heading {
+      gap: 0.25rem;
+      
+      .eyebrow {
+        font-size: $t-2xs;
+      }
+      
+      h3 {
+        font-size: $t-xl;
+      }
+      
+      p {
+        font-size: $t-s;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .photo-viewer {
+    max-width: 15rem;
+  }
+}

@@ -1,19 +1,20 @@
 interface PhotoProps {
   imageName: string;
-  eyebrow: string;
-  description: string;
+  date: string;
+  title: string;
   index: number;
+  onClick: () => void;
 }
 
-export const Photo = ({imageName, eyebrow, description, index}: PhotoProps) => {
+export const Photo = ({imageName, date, title, index, onClick}: PhotoProps) => {
   return (
-    <button className = {`photo i-${index}`}>
+    <button className = {`photo i-${index}`} onClick = {onClick}>
       
-      <img src = {`./photos/${imageName}.jpg`} alt = {description} />
+      <img src = {`./photos/${imageName}.webp`} alt = {title} />
       
       <div className = "over">
-        <span>{eyebrow}</span>
-        <p>{description}</p>
+        <span>{date}</span>
+        <p>{title}</p>
       </div>
       
     </button>

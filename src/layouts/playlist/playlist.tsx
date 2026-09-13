@@ -1,28 +1,169 @@
+import { Fragment } from "react/jsx-runtime";
 import { Divider, Heading, Player, Song } from "../../components/components.tsx";
+import { SONG_CONTENT } from "../../contents/songContent.tsx";
+import { useEffect, useRef, useState } from "react";
 
 export const Playlist = () => {
+  // REF
+  
+  const audioRef = useRef<HTMLAudioElement>(null);
+  
+  // STATES
+  
+  const [ songActive, setSongActive ] = useState<number | null>(null);
+  const [ isPlaying, setIsPlaying ] = useState<boolean>(false);
+  
+  const [ currentTime, setCurrentTime ] = useState<number>(0);
+  
+  // EFFECT
+  
+  useEffect(() => {
+    const audio = audioRef.current;
+    
+    if (!audio) return;
+    
+    audio.currentTime = 0;
+    setCurrentTime(0);
+    
+    if (isPlaying) {
+      void audio.play();
+    }
+  }, [songActive]);
+  
+  // VARIABLES
+  
+  const song = SONG_CONTENT[songActive ?? 0];
+  
+  // FUNCTIONS
+  
+  const handleOnTimeUpdate = () => {
+    if (audioRef.current) {
+      setCurrentTime(audioRef.current.currentTime);
+    }
+  };
+  
+  const handleSongClick = (index: number) => {
+    setSongActive(index);
+  };
+  
+  const handleSongEnded = () => {
+    let nextSong: number = 0;
+    
+    if (songActive !== null) {
+      nextSong = songActive + 1;
+    }
+    
+    if (nextSong >= SONG_CONTENT.length) {
+      nextSong = 0;
+      setIsPlaying(false);
+    }
+    
+    setSongActive(nextSong);
+  };
+  
+  const handlePrevSong = () => {
+    let prevSong: number = (songActive ?? 0) - 1;
+    
+    if (prevSong < 0) {
+      prevSong = SONG_CONTENT.length - 1;
+    }
+    
+    setSongActive(prevSong);
+  };
+  
+  const handleNextSong = () => {
+    let nextSong: number = (songActive ?? 0) + 1;
+    
+    if (nextSong >= SONG_CONTENT.length) {
+      nextSong = 0;
+    }
+    
+    setSongActive(nextSong);
+  };
+  
+  const togglePlay = () => {
+    const audio = audioRef.current;
+    
+    if (!audio) return;
+    
+    if (audio.paused) {
+      audio.play();
+      setIsPlaying(true);
+    }
+    
+    else {
+      audio.pause();
+      setIsPlaying(false);
+    }
+  };
+  
+  const handleOnSlideEnd = (slideValue: number): void => {
+    const audio = audioRef.current;
+    
+    if (!audio) return;
+    
+    audio.currentTime = slideValue;
+    setCurrentTime(slideValue);
+  };
+  
+  // RENDER
+  
   return (
     <section className = "playlist">
       
       <Heading
         eyebrow = "CANCIONCITAS"
-        title = "Nuestra playlist"
-        description = "Canciones que ahora tienen nuestros nombres"
+        title = "Tu playlist"
+        description = "Canciones que tienen tu nombre y apellido"
       />
       
       <div className = "playlist-wrapper">
-        <Player coverName = "us" title = "Te Amo Mucho" artist = "Kevin Celis"/>
+        
+        <audio
+          ref = {audioRef}
+          src = {`./audios/${song.songID}.mp3`}
+          onTimeUpdate = {handleOnTimeUpdate}
+          onEnded = {handleSongEnded}
+        />
+        
+        <Player
+          songID = {song.songID}
+          title = {song.title}
+          artist = {song.artist}
+          currentTime = {currentTime}
+          duration = {song.duration}
+          isPlaying = {isPlaying}
+          onPlay = {togglePlay}
+          onPrev = {handlePrevSong}
+          onNext = {handleNextSong}
+          onSlideEnd = {handleOnSlideEnd}
+        />
+        
         <div className = "list">
-          <Song coverName = "us" title = "Te Amo Mucho" artist = "Kevin Celis" duration = {120}/>
-          <Divider></Divider>
-          <Song coverName = "candles-day" title = "Te Amo Demasiado" artist = "Kevin Celis" duration = {120}/>
-          <Divider></Divider>
-          <Song coverName = "new-year" title = "Te Amoooooooooo" artist = "Kevin Celis" duration = {120}/>
-          <Divider></Divider>
-          <Song coverName = "hugs" title = "Te Amo Mucho bb" artist = "Kevin Celis" duration = {120}/>
-          <Divider></Divider>
-          <Song coverName = "happy" title = "Te Amo Amorcito" artist = "Kevin Celis" duration = {120}/>
+          {
+            SONG_CONTENT.map(({songID, title, artist, duration}, index) => {
+              return (
+                <Fragment key = {`Song-${index + 1}`}>
+                  {
+                    index !== 0 &&
+                    <Divider></Divider>
+                  }
+                  
+                  <Song
+                    songID = {songID}
+                    title = {title}
+                    artist = {artist}
+                    duration = {duration}
+                    isActive = {songActive === index}
+                    onClick = {() => handleSongClick(index)}
+                  />
+                  
+                </Fragment>
+              );
+            })
+          }
         </div>
+        
       </div>
       
     </section>

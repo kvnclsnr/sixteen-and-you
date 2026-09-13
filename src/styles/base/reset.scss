@@ -46,3 +46,7 @@ button, a {
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
 }
+
+button, input {
+  outline: none;
+}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Card, Eyebrow, Heading, Letter, Overlay } from "../../components/components.tsx";
 import { CARD_STATES, START_DATE } from "../../utils/constants.ts";
-import { CARD_CONTENTS } from "../../utils/cardContents.tsx";
+import { CARD_CONTENT } from "../../contents/cardContent.tsx";
 import { getStorageProperty, setStorageProperty } from "../../services/storage.ts";
 
 export const Gifts = () => {
@@ -100,7 +100,7 @@ export const Gifts = () => {
       
       <div className = "gifts__grid">
         {
-          CARD_CONTENTS.map(({title, iconName}, index) => {
+          CARD_CONTENT.map(({title, iconName}, index) => {
             
             const cardState = getCardState(index);
             
@@ -124,8 +124,8 @@ export const Gifts = () => {
           cardActive !== null &&
           <Letter
             index = {cardActive}
-            title = {CARD_CONTENTS[cardActive].title}
-            iconName = {CARD_CONTENTS[cardActive].iconName}
+            title = {CARD_CONTENT[cardActive].title}
+            iconName = {CARD_CONTENT[cardActive].iconName}
             onClose = {handleOverlayClose}
           >
             {null}

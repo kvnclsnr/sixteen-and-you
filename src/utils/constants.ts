@@ -31,6 +31,7 @@ interface Icons {
   PLAY: string;
   
   HEART: string;
+  LEFT: string;
   RIGHT: string;
   EXIT: string;
 }
@@ -50,6 +51,7 @@ export const ICONS: Icons = {
   PLAY: "play",
   
   HEART: "heart",
+  LEFT: "left",
   RIGHT: "right",
   EXIT: "exit",
 };
@@ -100,4 +102,20 @@ export const PHOTOS: Photos = {
   NEW_YEAR: "new-year",
   TRIP: "trip",
   US: "us",
+};
+
+// SONGS
+
+interface Songs {
+  AQUEL_NAP_ZZZZ: string;
+  CAMA_Y_MESA: string;
+  MEDIA_LUNA: string;
+  TE_QUIERO: string;
+}
+
+export const SONGS: Songs = {
+  AQUEL_NAP_ZZZZ: "aquel-nap-zzzz",
+  CAMA_Y_MESA: "cama-y-mesa",
+  MEDIA_LUNA: "media-luna",
+  TE_QUIERO: "te-quiero",
 };

@@ -1,19 +1,21 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Icon } from "../components";
 import { ICONS } from "../../utils/constants";
 
 interface PlayerProps {
-  coverName: string;
+  songID: string;
   title: string;
   artist: string;
+  currentTime: number;
+  duration: number;
+  isPlaying: boolean;
+  onPlay: () => void;
+  onPrev: () => void;
+  onNext: () => void;
+  onSlideEnd: (slideValue: number) => void;
 }
 
-export const Player = ({coverName, title, artist}: PlayerProps) => {
-  const audioRef = useRef<HTMLAudioElement>(null);
-  
-  const [ isPlaying, setIsPlaying ] = useState<boolean>(false);
-  const [ duration, setDuration ] = useState<number>(0);
-  const [ currentTime, setCurrentTime ] = useState<number>(0);
+export const Player = ({songID, title, artist, currentTime, duration, isPlaying, onPlay, onPrev, onNext, onSlideEnd}: PlayerProps) => {
   
   const [ isSliding, setIsSliding ] = useState<boolean>(false);
   const [ slideValue, setSlideValue ] = useState<number>(0);
@@ -22,51 +24,14 @@ export const Player = ({coverName, title, artist}: PlayerProps) => {
   ? ((isSliding ? slideValue : currentTime) / duration) * 100
   : 0;
   
-  const togglePlay = () => {
-    const audio = audioRef.current;
-    
-    if (!audio) return;
-    
-    if (audio.paused) {
-      audio.play();
-      setIsPlaying(true);
-    }
-    
-    else {
-      audio.pause();
-      setIsPlaying(false);
-    }
-  };
-  
   return (
     <div className = "player">
-      <img className = "player-image" src = {`./photos/${coverName}.jpg`} alt = {title} />
+      <img className = "player-image" src = {`./covers/${songID}.webp`} alt = {title} />
       
       <div className = "player-info">
         <h3>{title}</h3>
         <span>{artist}</span>
       </div>
-      
-      <audio
-        ref = {audioRef}
-        src = "./audios/FEEL_ME.mp3"
-        
-        onLoadedMetadata = {() => {
-          if (audioRef.current) {
-            setDuration(audioRef.current.duration);
-          }
-        }}
-        
-        onTimeUpdate = {() => {
-          if (audioRef.current) {
-            setCurrentTime(audioRef.current.currentTime);
-          }
-        }}
-        
-        onEnded = {() => {
-          setIsPlaying(false);
-        }}
-      />
       
       <input
         className = "player-slider"
@@ -74,11 +39,12 @@ export const Player = ({coverName, title, artist}: PlayerProps) => {
         min = {0}
         max = {duration}
         value = {isSliding ? slideValue : currentTime}
+        
         style = {{
           background: `linear-gradient(
-              to right,
-              var(--accent) ${progress}%,
-              color-mix(in srgb, var(--text) 10%, transparent) ${progress}%
+            to right,
+            var(--accent) ${progress}%,
+            color-mix(in srgb, var(--text) 10%, transparent) ${progress}%
           )`
         }}
         
@@ -88,12 +54,7 @@ export const Player = ({coverName, title, artist}: PlayerProps) => {
         }}
         
         onPointerUp = {() => {
-          const audio = audioRef.current;
-          
-          if (!audio) return;
-          
-          audio.currentTime = slideValue;
-          setCurrentTime(slideValue);
+          onSlideEnd(slideValue);
           setIsSliding(false);
         }}
         
@@ -103,17 +64,17 @@ export const Player = ({coverName, title, artist}: PlayerProps) => {
       />
       
       <div className = "player-actions">
-        <button>
+        <button onClick = {onPrev}>
           <Icon iconName = {ICONS.PREV} fill/>
         </button>
-        <button className = "" onClick = {togglePlay}>
+        <button onClick = {onPlay}>
           {
             isPlaying
             ? <Icon iconName = {ICONS.PAUSE} fill/>
             : <Icon iconName = {ICONS.PLAY} fill/>
           }
         </button>
-        <button>
+        <button onClick = {onNext}>
           <Icon iconName = {ICONS.NEXT} fill/>
         </button>
       </div>

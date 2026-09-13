@@ -1,5 +1,5 @@
 import type React from "react";
-import { ICONS } from "./constants";
+import { ICONS } from "../utils/constants";
 
 interface CardContent {
   title: string;
@@ -7,7 +7,7 @@ interface CardContent {
   content?: React.ReactNode
 }
 
-export const CARD_CONTENTS: CardContent[] = [
+export const CARD_CONTENT: CardContent[] = [
   {
     title: "a",
     iconName: ICONS.DARK,

@@ -6,20 +6,24 @@
   align-items: center;
   gap: 1rem;
   padding: 0.75rem;
-  border-radius: 1.25rem;
+  border-radius: 1rem;
   
   transition: background-color 0.25s ease;
   
-  &:hover {
+  &--active {
     background-color: translucent(var(--text), 5%);
+  }
+  
+  &:hover {
+    background-color: translucent(var(--text), 7.5%);
   }
   
   &-cover {
     aspect-ratio: 1 / 1;
     object-fit: cover;
     object-position: center;
-    width: 4rem;
-    border-radius: 0.5rem;
+    width: 3.5rem;
+    border-radius: 0.25rem;
   }
   
   &-info {
@@ -55,18 +59,18 @@
 
 @media screen and (max-width: 576px) {
   .song {
-    
     &-cover {
-      width: 3.5rem;
+      width: 3rem;
     }
     
     &-info {
+      gap: 0.25rem;
       h3 {
-        font-size: $t-m;
+        font-size: $t-l;
       }
       
       span {
-        font-size: $t-xs;
+        font-size: $t-s;
       }
     }
     
@@ -80,16 +84,16 @@
   .song {
     
     .song-cover {
-      width: 3rem;
+      width: 2.75rem;
     }
     
     .info {
       h3 {
-        font-size: $t-s;
+        font-size: $t-m;
       }
       
       span {
-        font-size: $t-2xs;
+        font-size: $t-xs;
       }
     }
     

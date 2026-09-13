@@ -69,17 +69,18 @@
     border-radius: 50%;
     width: 2.5rem;
     height: 2.5rem;
+    color: var(--text-muted);
     
-    transition: background-color 0.25s ease;
+    transition: background-color 0.25s ease, color 0.25s ease;
     
     &:hover {
       background-color: translucent(var(--text), 10%);
+      color: var(--text);
     }
     
     .icon {
       --size-icon: 1.5rem;
       
-      color: var(--text-muted);
       height: var(--size-icon);
       width: var(--size-icon);
     }

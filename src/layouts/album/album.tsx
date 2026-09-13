@@ -1,7 +1,22 @@
-import { Heading, Photo } from "../../components/components.tsx";
-import { PHOTOS } from "../../utils/constants.ts";
+import { useState } from "react";
+import { Heading, Overlay, Photo, PhotoViewer } from "../../components/components.tsx";
+import { PHOTO_CONTENT } from "../../contents/photoContent.tsx";
 
 export const Album = () => {
+  const [ isOverlayActive, setIsOverlayActive ] = useState<boolean>(false);
+  
+  const [ imageActive, setImageActive ] = useState<number | null>(null);
+  
+  const handleOverlayClose = () => {
+    setImageActive(null);
+    setIsOverlayActive(false);
+  };
+  
+  const handleViewerOpen = (index: number) => {
+    setImageActive(index);
+    setIsOverlayActive(true);
+  };
+  
   return (
     <section className = "album">
       
@@ -12,91 +27,34 @@ export const Album = () => {
       />
       
       <div className = "album-grid">
-        <Photo
-          imageName = {PHOTOS.FIRST_DATE}
-          eyebrow = "MAY 2025"
-          description = "Texto de ejemplo"
-          index = {0}
-        />
-        
-        <Photo
-          imageName = {PHOTOS.FILTERS}
-          eyebrow = "MAY 2025"
-          description = "Texto de ejemplo"
-          index = {1}
-        />
-        
-        <Photo
-          imageName = {PHOTOS.HER_XV}
-          eyebrow = "MAY 2025"
-          description = "Texto de ejemplo"
-          index = {2}
-        />
-        
-        <Photo
-          imageName = {PHOTOS.AFTER_SCHOOL}
-          eyebrow = "MAY 2025"
-          description = "Texto de ejemplo"
-          index = {3}
-        />
-        
-        <Photo
-          imageName = {PHOTOS.HAPPY}
-          eyebrow = "MAY 2025"
-          description = "Texto de ejemplo"
-          index = {4}
-        />
-        
-        <Photo
-          imageName = {PHOTOS.US}
-          eyebrow = "MAY 2025"
-          description = "Texto de ejemplo"
-          index = {5}
-        />
-        
-        <Photo
-          imageName = {PHOTOS.HER}
-          eyebrow = "MAY 2025"
-          description = "Texto de ejemplo"
-          index = {6}
-        />
-        
-        <Photo
-          imageName = {PHOTOS.HUGS}
-          eyebrow = "MAY 2025"
-          description = "Texto de ejemplo"
-          index = {7}
-        />
-        
-        <Photo
-          imageName = {PHOTOS.TRIP}
-          eyebrow = "MAY 2025"
-          description = "Texto de ejemplo"
-          index = {8}
-        />
-        
-        <Photo
-          imageName = {PHOTOS.NEW_YEAR}
-          eyebrow = "MAY 2025"
-          description = "Texto de ejemplo"
-          index = {9}
-        />
-        
-        <Photo
-          imageName = {PHOTOS.FOODS}
-          eyebrow = "MAY 2025"
-          description = "Texto de ejemplo"
-          index = {10}
-        />
-        
-        <Photo
-          imageName = {PHOTOS.CANDLES_DAY}
-          eyebrow = "MAY 2025"
-          description = "Texto de ejemplo"
-          index = {11}
-        />
-        
+        {
+          PHOTO_CONTENT.map(({photo, date, title}, index) => {
+            return (
+              <Photo
+                key = {`Photo-${index + 1}`}
+                imageName = {photo}
+                date = {date}
+                title = {title}
+                index = {index}
+                onClick = {() => handleViewerOpen(index)}
+              />
+            );
+          })
+        }
       </div>
+      
+      <Overlay isActive = {isOverlayActive} onClose = {handleOverlayClose}>
+        {
+          imageActive !== null &&
+          <PhotoViewer
+            photo = {PHOTO_CONTENT[imageActive].photo}
+            date = {PHOTO_CONTENT[imageActive].date}
+            title = {PHOTO_CONTENT[imageActive].title}
+            description = {PHOTO_CONTENT[imageActive].description}
+            onClose = {handleOverlayClose}
+          />
+        }
+      </Overlay>
       
     </section>
   );

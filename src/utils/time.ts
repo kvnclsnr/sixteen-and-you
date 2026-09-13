@@ -14,3 +14,10 @@ export const getDateByIndex = (index: number) => {
   
   return `${day} ${month}`;
 };
+
+export const formatSeconds = (seconds: number) => {
+  const mins: number = Math.floor(seconds / 60);
+  const secs: number = Math.round(seconds % 60);
+  
+  return `${mins}:${padNumber(secs)}`;
+};
