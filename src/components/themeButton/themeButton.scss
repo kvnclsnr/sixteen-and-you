@@ -3,7 +3,7 @@
 
 .theme-button {
   @include flex-center;
-  --size: 2.25rem;
+  --size: 2.5rem;
   
   height: var(--size);
   width: var(--size);
@@ -12,7 +12,7 @@
   border-radius: 50%;
   
   .icon {
-    --size-icon: 18px;
+    --size-icon: 1.25rem;
     
     color: var(--text);
     height: var(--size-icon);

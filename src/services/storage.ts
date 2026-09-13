@@ -42,3 +42,5 @@ export const loadStorage = () => {
     Object.assign(storage, data);
   }
 };
+
+// setStorageProperty({cardsOpened: 0});

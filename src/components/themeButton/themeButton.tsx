@@ -7,7 +7,7 @@ import { Icon } from "../components.tsx";
 import { useEffect, useState } from "react";
 
 export const ThemeButton = () => {
-  const currentTheme: string = getStorageProperty("theme");
+  const currentTheme: string = getStorageProperty("theme") as string;
   
   const [ theme, setTheme ] = useState(currentTheme);
   
