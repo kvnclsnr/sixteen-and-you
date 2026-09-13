@@ -7,10 +7,22 @@ interface SongContent {
 
 export const SONG_CONTENT: SongContent[] = [
   {
-    songID: "te-quiero",
-    title: "Te Quiero",
-    artist: "José Luis Perales",
-    duration: 230,
+    songID: "cama-y-mesa",
+    title: "Cama y Mesa",
+    artist: "Roberto Carlos",
+    duration: 195,
+  },
+  {
+    songID: "mai",
+    title: "M.A.I",
+    artist: "Milo j",
+    duration: 180,
+  },
+  {
+    songID: "me-gustas",
+    title: "Me Gustas",
+    artist: "Joan Sebastian",
+    duration: 209,
   },
   {
     songID: "aquel-nap-zzzz",
@@ -19,10 +31,10 @@ export const SONG_CONTENT: SongContent[] = [
     duration: 295,
   },
   {
-    songID: "cama-y-mesa",
-    title: "Cama y Mesa",
-    artist: "Roberto Carlos",
-    duration: 195,
+    songID: "te-quiero",
+    title: "Te Quiero",
+    artist: "José Luis Perales",
+    duration: 230,
   },
   {
     songID: "media-luna",
@@ -30,4 +42,6 @@ export const SONG_CONTENT: SongContent[] = [
     artist: "Mora",
     duration: 135,
   },
+
+
 ];

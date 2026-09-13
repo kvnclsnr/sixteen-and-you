@@ -95,6 +95,10 @@ export const Playlist = () => {
       audio.pause();
       setIsPlaying(false);
     }
+    
+    if (songActive === null) {
+      setSongActive(0);
+    }
   };
   
   const handleOnSlideEnd = (slideValue: number): void => {
