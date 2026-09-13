@@ -18,7 +18,7 @@
     background-color: translucent(var(--text), 7.5%);
   }
   
-  &-cover {
+  &__cover {
     aspect-ratio: 1 / 1;
     object-fit: cover;
     object-position: center;
@@ -26,7 +26,7 @@
     border-radius: 0.25rem;
   }
   
-  &-info {
+  &__info {
     margin-right: auto;
     display: flex;
     flex-direction: column;
@@ -39,6 +39,8 @@
       font-weight: 500;
       font-size: $t-l;
       color: var(--text);
+      
+      transition: color 0.25s ease;
     }
     
     span {
@@ -46,14 +48,18 @@
       font-weight: 400;
       font-size: $t-s;
       color: var(--text-muted);
+      
+      transition: color 0.25s ease;
     }
   }
   
-  &-duration {
+  &__duration {
     color: var(--text-muted);
     font-family: $mono;
     font-size: $t-s;
     letter-spacing: 0.5px;
+    
+    transition: color 0.25s ease;
   }
 }
 

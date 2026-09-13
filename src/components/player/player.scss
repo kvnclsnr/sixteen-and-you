@@ -12,6 +12,10 @@
   padding: 1.5rem;
   border-radius: 1.5rem;
   
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+  
   &-image {
     width: 100%;
     height: auto;
@@ -33,6 +37,9 @@
       font-weight: 500;
       font-size: $t-xl;
       color: var(--text);
+      
+      transition:
+        color 0.25s ease;
     }
     
     span {
@@ -40,6 +47,9 @@
       font-weight: 400;
       font-size: $t-m;
       color: var(--text-muted);
+      
+      transition:
+        color 0.25s ease;
     }
   }
   
@@ -50,7 +60,9 @@
     border-radius: 0.25rem;
     cursor: pointer;
     touch-action: none;
-    background: translucent(var(--text), 10%);
+    
+    transition:
+      background-color 0.25s ease;
     
     &::-webkit-slider-thumb {
       --size: 1rem;
@@ -60,45 +72,50 @@
       width: var(--size);
       border-radius: 50%;
       background-color: var(--accent);
+      
+      transition:
+        background-color 0.25s ease;
     }
   }
   
-  &-actions {
+  &__actions {
     display: flex;
     gap: 1rem;
     margin-block: 0rem 0.5rem;
+  }
+  
+  &__button {
+    @include flex-center;
     
-    .player__button {
-      @include flex-center;
-      
-      height: 3.75rem;
-      width: 3.75rem;
-      border-radius: 50%;
-      
-      transition: background-color 0.25s ease;
-      
-      &--prev {
-        .icon {
-          transform: translateX(-1px);
-        }
-      }
-      
-      &--next {
-        .icon {
-          transform: translateX(1px);
-        }
-      }
-      
-      &:hover {
-        background-color: translucent(var(--text), 10%);
-      }
-      
+    height: 3.75rem;
+    width: 3.75rem;
+    border-radius: 50%;
+    
+    transition: background-color 0.25s ease;
+    
+    &--prev {
       .icon {
-        color: var(--text);
-        stroke-width: 0;
-        height: 2.5rem;
-        width: 2.5rem;
+        transform: translateX(-1px);
       }
+    }
+    
+    &--next {
+      .icon {
+        transform: translateX(1px);
+      }
+    }
+    
+    &:hover {
+      background-color: translucent(var(--text), 10%);
+    }
+    
+    .icon {
+      color: var(--text);
+      stroke-width: 0;
+      height: 2.5rem;
+      width: 2.5rem;
+      
+      transition: color 0.25s ease;
     }
   }
 }

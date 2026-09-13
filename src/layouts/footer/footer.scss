@@ -10,5 +10,8 @@
     font-size: $t-m;
     font-family: $serif;
     color: var(--text-subtle);
+    
+    transition:
+      color 0.25s ease;
   }
 }

@@ -6,32 +6,34 @@
   flex-direction: column;
   gap: 1.75rem;
   
-  .wrapper {
+  &__wrapper {
     display: flex;
     align-items: center;
     gap: 2rem;
+  }
+  
+  &__dot {
+    --dot-size: 0.5rem;
     
-    .dot {
-      --size: 0.5rem;
-      
-      flex: none;
-      height: var(--size);
-      width: var(--size);
-      background-color: translucent(var(--accent), 50%);
-      transform: translateY(- calc(($t-xs + 0.5rem) / 2));
-      border-radius: 50%;
-    }
+    flex: none;
+    height: var(--dot-size);
+    width: var(--dot-size);
+    background-color: translucent(var(--accent), 50%);
+    transform: translateY(- calc(($t-xs + 0.5rem) / 2));
+    border-radius: 50%;
+    
+    transition: background-color 0.25s ease;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .counter .wrapper {
+  .counter .counter__wrapper {
     gap: 1rem;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .counter .dot {
+  .counter .counter__dot {
     display: none;
   }
 }

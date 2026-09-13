@@ -6,7 +6,9 @@
   letter-spacing: 0.5px;
   color: var(--text-subtle);
   
-  &.accent {
+  &--accent {
     color: var(--accent);
   }
+  
+  transition: color 0.25s ease;
 }

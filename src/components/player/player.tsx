@@ -63,7 +63,7 @@ export const Player = ({songID, title, artist, currentTime, duration, isPlaying,
         }}
       />
       
-      <div className = "player-actions">
+      <div className = "player__actions">
         <button onClick = {onPrev} className = "player__button player__button--prev">
           <Icon iconName = {ICONS.PREV} fill/>
         </button>

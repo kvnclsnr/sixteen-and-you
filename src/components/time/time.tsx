@@ -1,3 +1,5 @@
+import { Eyebrow } from "../components.tsx";
+
 interface TimeProps {
   number: string;
   unit: string;
@@ -6,8 +8,8 @@ interface TimeProps {
 export const Time = ({number, unit}: TimeProps) => {
   return (
     <div className = "time">
-      <strong>{number}</strong>
-      <span>{unit}</span>
+      <strong className = "time__number">{number}</strong>
+      <Eyebrow text = {unit}/>
     </div>
   );
 };

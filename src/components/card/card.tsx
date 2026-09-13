@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { CARD_STATES, ICONS } from "../../utils/constants.ts";
-import { Icon } from "../components.tsx";
+import { Eyebrow, Icon } from "../components.tsx";
 import { padNumber } from "../../utils/helpers.ts";
 import { getDateByIndex } from "../../utils/time.ts";
 
@@ -68,38 +68,32 @@ interface CardProps {
 export const Card = ({state, iconName, title, index, isActive, onClick}: CardProps) => {
   return (
     <button
-      className = {`card ${state} ${isActive ? "active" : ""}`}
+      className = {`card card--${state} ${isActive ? "card--active" : ""}`}
       onClick = {() => {
         if (state === CARD_STATES.LOCKED) return;
         onClick();
       }}
     >
       
-      {/* CARD HEADER */}
-      
-      <div className = "card-header">
+      <div className = "card__header">
         
         <div className = "icon-wrapper">
           <Icon iconName = {state}/>
         </div>
         
-        <span className = "tag">{getStateText(state)}</span>
+        <span className = "card__label">{getStateText(state)}</span>
         
       </div>
       
-      {/* CARD INFO */}
-      
-      <div className = "card-info">
+      <div className = "card__info">
         
-        <span className = "tag">DÍA</span>
-        <strong className = "num">{padNumber(index + 1)}</strong>
-        <span className = "day">{getDateByIndex(index)}</span>
+        <Eyebrow text = "DÍA"/>
+        <strong className = "card__number">{padNumber(index + 1)}</strong>
+        <Eyebrow text = {getDateByIndex(index)}/>
         
       </div>
       
-      {/* CARD FOOTER */}
-      
-      <div className = "card-footer">
+      <div className = "card__footer">
         {getFooterContent(state, iconName, title)}
       </div>
       

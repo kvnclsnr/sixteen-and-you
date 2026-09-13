@@ -38,6 +38,8 @@
     &--accent {
       background-color: var(--accent);
     }
+    
+    transition: background-color 0.25s ease;
   }
   
   &__counter {
@@ -57,18 +59,24 @@
       font-size: $t-2xl;
       color: var(--text);
       font-weight: 400;
+      
+      transition: color 0.25s ease;
     }
     
     .slash {
       font-size: $t-l;
       color: var(--text-subtle);
       font-weight: 600;
+      
+      transition: color 0.25s ease;
     }
     
     .total {
       font-size: $t-l;
       color: var(--text-subtle);
       font-weight: 400;
+      
+      transition: color 0.25s ease;
     }
   }
   

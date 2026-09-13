@@ -8,7 +8,7 @@
     transform 400ms ease,
     opacity 400ms ease;
   
-  &.active {
+  &--active {
     transform: translateY(1rem);
     opacity: 0;
   }
@@ -24,7 +24,11 @@
   border-radius: 1.5rem;
   user-select: none;
   
-  &-header {
+  transition:
+    background-color 0.25s ease,
+    border 0.25s ease;
+  
+  &__header {
     align-self: stretch;
     display: flex;
     justify-content: space-between;
@@ -32,58 +36,61 @@
     
     .icon-wrapper {
       @include flex-center;
-      --size: 2.25rem;
       
-      height: var(--size);
-      width: var(--size);
+      --wrapper-size: 2.25rem;
+      
+      height: var(--wrapper-size);
+      width: var(--wrapper-size);
       border-radius: 35%;
       
+      transition:
+        border 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease;
+      
       .icon {
-        --size-icon: 1.25rem;
+        --icon-size: 1.375rem;
         
-        height: var(--size-icon);
-        width: var(--size-icon);
+        height: var(--icon-size);
+        width: var(--icon-size);
+        
+        transition:
+          color 0.25s ease;
       }
-    }
-    
-    .tag {
-      font-family: $mono;
-      font-size: $t-xs;
-      letter-spacing: 0.5px;
-      padding: 6px 10px;
-      border-radius: calc(($t-xs + 12px) / 2);
     }
   }
   
-  &-info {
+  &__label {
+    font-family: $mono;
+    font-size: $t-xs;
+    letter-spacing: 0.5px;
+    padding: 6px 10px;
+    border-radius: calc(($t-xs + 12px) / 2);
+    
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border 0.25s ease;
+  }
+  
+  &__info {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
-    
-    .tag {
-      font-size: $t-s;
-      font-family: $mono;
-      color: var(--text-subtle);
-      letter-spacing: 0.5px;
-    }
-    
-    .num {
-      font-weight: 400;
-      font-size: $t-5xl;
-      line-height: 0.9;
-      font-family: $serif;
-    }
-    
-    .day {
-      font-size: $t-s;
-      font-family: $mono;
-      color: var(--text-subtle);
-      letter-spacing: 0.5px;
-    }
   }
   
-  &-footer {
+  &__number {
+    font-weight: 400;
+    font-size: $t-5xl;
+    line-height: 0.9;
+    font-family: $serif;
+    
+    transition:
+      color 0.25s ease;
+  }
+  
+  &__footer {
     display: flex;
     align-items: center;
     gap: 0.25rem;
@@ -93,45 +100,46 @@
       
       height: var(--size);
       width: var(--size);
+      
+      transition:
+        color 0.25s ease;
     }
     
     span {
       font-size: $t-m;
       font-family: $sans;
+      
+      transition:
+        color 0.25s ease;
     }
   }
 }
 
-.card.locked {
+.card--locked {
   cursor: default;
   filter: opacity(0.5);
   border: 1px dashed var(--border);
   
-  .card-header {
+  .icon-wrapper {
+    background-color: transparent;
+    border: 1px dashed var(--border);
     
-    .icon-wrapper {
-      background-color: transparent;
-      border: 1px dashed var(--border);
-      
-      .icon {
-        color: var(--text-subtle);
-      }
-    }
-    
-    .tag {
-      background-color: transparent;
+    .icon {
       color: var(--text-subtle);
-      border: 1px dashed var(--border);
     }
   }
   
-  .card-info {
-    .num {
-      color: var(--text-muted);
-    }
+  .card__label {
+    background-color: transparent;
+    color: var(--text-subtle);
+    border: 1px dashed var(--border);
   }
   
-  .card-footer {
+  .card__number {
+    color: var(--text-muted);
+  }
+  
+  .card__footer {
     .icon {
       color: var(--text-subtle);
     }
@@ -142,34 +150,29 @@
   }
 }
 
-.card.opened {
+.card--opened {
   border: 1px solid var(--border);
   
-  .card-header {
+  .icon-wrapper {
+    background-color: transparent;
+    border: 1px solid var(--border);
     
-    .icon-wrapper {
-      background-color: transparent;
-      border: 1px solid var(--border);
-      
-      .icon {
-        color: var(--text-subtle);
-      }
-    }
-    
-    .tag {
-      background-color: transparent;
+    .icon {
       color: var(--text-subtle);
-      border: 1px solid var(--border);
     }
   }
   
-  .card-info {
-    .num {
-      color: var(--text-muted);
-    }
+  .card__label {
+    background-color: transparent;
+    color: var(--text-subtle);
+    border: 1px solid var(--border);
   }
   
-  .card-footer {
+  .card__number {
+    color: var(--text-muted);
+  }
+  
+  .card__footer {
     .icon {
       color: var(--accent);
     }
@@ -180,34 +183,29 @@
   }
 }
 
-.card.unlocked {
+.card--unlocked {
   border: 1px solid translucent(var(--accent), 40%);
   
-  .card-header {
+  .icon-wrapper {
+    background-color: translucent(var(--accent), 10%);
+    border: 1px solid translucent(var(--accent), 30%);
     
-    .icon-wrapper {
-      background-color: translucent(var(--accent), 10%);
-      border: 1px solid translucent(var(--accent), 30%);
-      
-      .icon {
-        color: var(--accent);
-      }
-    }
-    
-    .tag {
-      background-color: translucent(var(--accent), 10%);
+    .icon {
       color: var(--accent);
-      border: 1px solid translucent(var(--accent), 30%);
     }
   }
   
-  .card-info {
-    .num {
-      color: var(--text);
-    }
+  .card__label {
+    background-color: translucent(var(--accent), 10%);
+    color: var(--accent);
+    border: 1px solid translucent(var(--accent), 30%);
   }
   
-  .card-footer {
+  .card__number {
+    color: var(--text);
+  }
+  
+  .card__footer {
     .icon {
       color: var(--accent);
     }
@@ -218,39 +216,36 @@
   }
 }
 
-.card.today {
+.card--today {
   border: 1px solid var(--accent);
-  background-color: color-mix(in srgb, var(--accent) 7.5%, var(--surface));
+  background-color: color-mix(
+    in srgb, var(--accent) 7.5%, var(--surface)
+  );
   box-shadow: 0 0.125rem 1rem 0 translucent(var(--accent), 20%);
   
-  .card-header {
+  .icon-wrapper {
+    background-color: translucent(var(--accent), 90%);
+    border: 1px solid transparent;
+    box-shadow: 0 0.125rem 0.75rem 0 translucent(var(--accent), 30%);
     
-    .icon-wrapper {
-      background-color: translucent(var(--accent), 90%);
-      border: 1px solid transparent;
-      box-shadow: 0 0.125rem 0.75rem 0 translucent(var(--accent), 30%);
-      
-      .icon {
-        color: var(--text-on-accent);
-      }
-    }
-    
-    .tag {
-      font-weight: 600;
-      background-color: translucent(var(--accent), 90%);
+    .icon {
       color: var(--text-on-accent);
-      border: 1px solid transparent;
-      box-shadow: 0 0.125rem 0.75rem 0 translucent(var(--accent), 30%);
     }
   }
   
-  .card-info {
-    .num {
-      color: var(--text);
-    }
+  .card__label {
+    font-weight: 600;
+    background-color: translucent(var(--accent), 90%);
+    color: var(--text-on-accent);
+    border: 1px solid transparent;
+    box-shadow: 0 0.125rem 0.75rem 0 translucent(var(--accent), 30%);
   }
   
-  .card-footer {
+  .card__number {
+    color: var(--text);
+  }
+  
+  .card__footer {
     .icon {
       color: var(--accent);
     }
@@ -266,47 +261,28 @@
     padding: 1.25rem;
     gap: 1.25rem;
     
-    .card-header {
+    .icon-wrapper {
+      --wrapper-size: 2rem;
       
-      .icon-wrapper {
-        --size: 2rem;
-        
-        height: var(--size);
-        width: var(--size);
-        
-        .icon {
-          --size-icon: 1.125rem;
-          
-          height: var(--size-icon);
-          width: var(--size-icon);
-        }
-      }
-      
-      .tag {
-        letter-spacing: 0.5px;
-        font-size: $t-2xs;
+      .icon {
+        --icon-size: 1.125rem;
       }
     }
     
-    .card-info {
-      
-      .tag {
-        font-size: $t-xs;
-      }
-      
-      .num {
-        font-size: $t-4xl;
-      }
-      
-      .day {
-        font-size: $t-xs;
-      }
+    &__label {
+      font-size: $t-2xs;
     }
     
-    .card-footer {
-      span {
-        font-size: $t-s;
-      }
+    &__info .eyebrow {
+      font-size: $t-xs;
+    }
+    
+    &__number {
+      font-size: $t-4xl;
+    }
+    
+    &__footer span {
+      font-size: $t-s;
     }
   }
 }
@@ -316,47 +292,28 @@
     padding: 1.5rem;
     gap: 1.5rem;
     
-    .card-header {
+    .icon-wrapper {
+      --wrapper-size: 2.25rem;
       
-      .icon-wrapper {
-        --size: 2.25rem;
-        
-        height: var(--size);
-        width: var(--size);
-        
-        .icon {
-          --size-icon: 1.375rem;
-          
-          height: var(--size-icon);
-          width: var(--size-icon);
-        }
-      }
-      
-      .tag {
-        letter-spacing: 0.5px;
-        font-size: $t-xs;
+      .icon {
+        --icon-size: 1.375rem;
       }
     }
     
-    .card-info {
-      
-      .tag {
-        font-size: $t-s;
-      }
-      
-      .num {
-        font-size: $t-5xl;
-      }
-      
-      .day {
-        font-size: $t-s;
-      }
+    &__label {
+      font-size: $t-xs;
     }
     
-    .card-footer {
-      span {
-        font-size: $t-m;
-      }
+    &__info .eyebrow {
+      font-size: $t-s;
+    }
+    
+    &__number {
+      font-size: $t-5xl;
+    }
+    
+    &__footer span {
+      font-size: $t-m;
     }
   }
 }
@@ -366,55 +323,40 @@
     padding: 1.25rem;
     gap: 1.25rem;
     
-    .card-header {
+    .icon-wrapper {
+      --wrapper-size: 1.875rem;
       
-      .icon-wrapper {
-        --size: 1.875rem;
-        
-        height: var(--size);
-        width: var(--size);
-        
-        .icon {
-          --size-icon: 1.125rem;
-          
-          height: var(--size-icon);
-          width: var(--size-icon);
-        }
-      }
-      
-      .tag {
-        padding: 6px 8px;
-        letter-spacing: 0.5px;
-        font-size: $t-2xs;
+      .icon {
+        --icon-size: 1.125rem;
       }
     }
     
-    .card-info {
-      
-      .tag {
-        font-size: $t-xs;
-      }
-      
-      .num {
-        font-size: $t-4xl;
-      }
-      
-      .day {
-        font-size: $t-xs;
-      }
+    &__label {
+      padding: 6px 8px;
+      font-size: $t-2xs;
     }
     
-    .card-footer {
-      span {
-        font-size: $t-s;
-      }
+    .card-info .eyebrow {
+      font-size: $t-xs;
+    }
+    
+    &__number {
+      font-size: $t-4xl;
+    }
+    
+    &__footer span {
+      font-size: $t-s;
     }
   }
 }
 
 @media screen and (max-width: 384px) {
-  .card .card-header {
-    justify-content: flex-end;
+  .card {
+    padding: 1rem;
+    
+    &__header {
+      justify-content: flex-start;
+    }
     
     .icon-wrapper {
       display: none;
@@ -423,7 +365,7 @@
 }
 
 @media screen and (max-width: 320px) {
-  .card .card-header {
+  .card .card__header {
     display: none;
   }
 }

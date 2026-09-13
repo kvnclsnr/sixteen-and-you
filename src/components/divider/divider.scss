@@ -3,10 +3,7 @@
 .divider {
   height: 1px;
   width: 100%;
-  background: linear-gradient(
-    to right,
-    translucent(var(--border-strong), 25%),
-    translucent(var(--border-strong), 75%),
-    translucent(var(--border-strong), 25%),
-  );
+  background-color: var(--border);
+  
+  transition: background-color 0.25s ease;
 }

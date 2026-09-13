@@ -7,23 +7,23 @@
   align-items: center;
   gap: 0.5rem;
   
-  strong {
+  &__number {
     font-family: $serif;
     font-size: $t-6xl;
     font-weight: 400;
+    color: var(--text);
+    
+    transition: color 0.25s ease;
   }
   
-  span {
-    font-family: $mono;
+  .eyebrow {
     font-size: $t-xs;
-    letter-spacing: 0.5px;
-    color: var(--text-subtle);
   }
 }
 
 @media screen and (max-width: 768px) {
   .time {
-    strong {
+    &__number {
       font-size: $t-5xl;
     }
   }
@@ -31,11 +31,11 @@
 
 @media screen and (max-width: 576px) {
   .time {
-    strong {
+    &__number {
       font-size: $t-4xl;
     }
     
-    span {
+    .eyebrow {
       letter-spacing: 0.5px;
     }
   }
@@ -43,11 +43,11 @@
 
 @media screen and (max-width: 384px) {
   .time {
-    strong {
+    &__number {
       font-size: $t-2xl;
     }
     
-    span {
+    .eyebrow {
       letter-spacing: 0;
     }
   }

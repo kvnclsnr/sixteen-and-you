@@ -5,7 +5,7 @@ import { CARD_CONTENT } from "../../contents/cardContent.tsx";
 import { getStorageProperty, setStorageProperty } from "../../services/storage.ts";
 
 export const Gifts = () => {
-  const now: Date = new Date("2026-10-02T00:00:00");
+  const now: Date = new Date("2026-09-26T00:00:00");
   
   const dayIndex = Math.min(Math.floor(
     (now.getTime() - START_DATE.getTime()) / 8.64e7

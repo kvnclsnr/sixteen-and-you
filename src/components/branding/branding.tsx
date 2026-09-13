@@ -5,15 +5,11 @@ export const Branding = () => {
   return (
     <div className = "branding">
       
-      {/* LOGO */}
-      
-      <div className = "branding-logo">
+      <div className = "branding__logo">
         <Icon iconName = {ICONS.HEART}></Icon>
       </div>
       
-      {/* NAME */}
-      
-      <span className = "branding-name">Sixteen & You</span>
+      <span className = "branding__name">Sixteen & You</span>
       
     </div>
   );

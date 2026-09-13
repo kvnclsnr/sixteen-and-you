@@ -14,12 +14,12 @@ export const Song = ({songID, title, artist, duration, isActive, onClick}: SongP
   return (
     <Fragment>
       <button className = {`song ${isActive? "song--active" : ""}`} onClick = {onClick}>
-        <img className = "song-cover" src = {`./covers/${songID}.webp`} alt = {title} />
-        <div className = "song-info">
+        <img className = "song__cover" src = {`./covers/${songID}.webp`} alt = {title} />
+        <div className = "song__info">
           <h3>{title}</h3>
           <span>{artist}</span>
         </div>
-        <span className = "song-duration">{formatSeconds(duration)}</span>
+        <span className = "song__duration">{formatSeconds(duration)}</span>
       </button>
     </Fragment>
   );

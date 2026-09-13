@@ -60,13 +60,13 @@ export const Counter = () => {
       
       <Eyebrow text = "FALTAN" accent/>
       
-      <div className = "wrapper">
+      <div className = "counter__wrapper">
         {
           TIME_UNITS.map(({key, value}, index) => {
             return (
               <Fragment key = {`${key}-fragment`}>
                 
-                {index > 0 ? <div className = "dot"></div> : null}
+                {index > 0 ? <div className = "counter__dot"></div> : null}
                 
                 <Time
                   number = {padNumber(countdown[key])}

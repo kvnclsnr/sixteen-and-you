@@ -7,7 +7,7 @@
   flex-direction: column;
   gap: 2rem;
   
-  h1 {
+  &__title {
     color: var(--text);
     line-height: 0.85;
     max-width: 7ch;
@@ -15,13 +15,17 @@
     font-weight: 400;
     font-size: $t-7xl;
     
+    transition: color 0.25s ease;
+    
     span {
       line-height: 0.85;
       color: var(--accent);
+      
+      transition: color 0.25s ease;
     }
   }
   
-  .description {
+  &__description {
     margin-top: 1rem;
     max-width: 32ch;
     text-wrap: pretty;
@@ -29,27 +33,31 @@
     font-family: $sans;
     line-height: 1.5;
     color: var(--text-muted);
+    
+    transition: color 0.25s ease;
   }
   
-  .lead {
+  &__lead {
     text-wrap: pretty;
     font-size: $t-m;
     font-family: $serif;
     color: var(--text-subtle);
+    
+    transition: color 0.25s ease;
   }
 }
 
 @media screen and (max-width: 320px) {
   .hero {
-    h1 {
+    &__title {
       font-size: $t-6xl;
     }
     
-    .description {
+    &__description {
       font-size: $t-m;
     }
     
-    .lead {
+    &__lead {
       font-size: $t-s;
     }
   }

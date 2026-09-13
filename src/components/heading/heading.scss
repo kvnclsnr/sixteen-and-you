@@ -9,6 +9,9 @@
     font-size: $t-4xl;
     font-family: $serif;
     font-weight: 400;
+    color: var(--text);
+    
+    transition: color 0.25s ease;
   }
   
   &__description {
@@ -18,6 +21,8 @@
     font-family: $sans;
     line-height: 1.5;
     color: var(--text-muted);
+    
+    transition: color 0.25s ease;
   }
 }
 

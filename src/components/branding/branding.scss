@@ -1,34 +1,46 @@
 @use "../../styles/abstract/mixins" as *;
 @use "../../styles/abstract/variables" as *;
+@use "../../styles/abstract/functions" as *;
 
 .branding {
   display: flex;
   align-items: center;
   gap: 1rem;
   
-  &-logo {
+  &__logo {
     @include flex-center;
-    --size: 2.5rem;
+    --wrapper-size: 2.5rem;
     
-    height: var(--size);
-    width: var(--size);
+    height: var(--wrapper-size);
+    width: var(--wrapper-size);
     background-color: var(--accent);
     border-radius: 50%;
     
+    box-shadow: 0 0.25rem 0.5rem 0 translucent(var(--accent), 30%);
+    
+    color: var(--background);
+    
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      box-shadow 0.25s ease;
+    
     .icon {
-      --size-icon: 1.25rem;
+      --icon-size: 1.25rem;
       
-      height: var(--size-icon);
-      width: var(--size-icon);
-      color: var(--text-on-accent);
+      height: var(--icon-size);
+      width: var(--icon-size);
       fill: currentColor;
       stroke: currentColor;
     }
   }
   
-  &-name {
+  &__name {
+    color: var(--text);
     font-family: $serif;
     font-size: $t-l;
     font-weight: 500;
+    
+    transition: color 0.25s ease;
   }
 }
