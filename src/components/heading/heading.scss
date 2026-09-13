@@ -1,0 +1,36 @@
+@use "../../styles/abstract/variables" as *;
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  
+  &__title {
+    font-size: $t-4xl;
+    font-family: $serif;
+    font-weight: 400;
+  }
+  
+  &__description {
+    max-width: 48ch;
+    text-wrap: pretty;
+    font-size: $t-l;
+    font-family: $sans;
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+}
+
+// MEDIA QUERIES
+
+@media screen and (max-width: 480px) {
+  .heading {
+    &__title {
+      font-size: $t-3xl;
+    }
+    
+    &__description {
+      font-size: $t-m;
+    }
+  }
+}

@@ -1,9 +1,7 @@
-import { loadStorage, setStorageProperty, storage } from "../services/storage.ts";
+import { setStorageProperty, storage } from "../services/storage.ts";
 import { THEMES } from "../utils/constants.ts";
 
 export const setInitialTheme = () => {
-  loadStorage();
-  
   if (storage.theme === null) {
     const userTheme: string = window.matchMedia("(prefers-color-scheme: dark)").matches
     ? THEMES.DARK

@@ -1,15 +1,15 @@
-import { Eyebrow, Photo } from "../../components/components";
-import { PHOTOS } from "../../utils/constants";
+import { Heading, Photo } from "../../components/components.tsx";
+import { PHOTOS } from "../../utils/constants.ts";
 
 export const Album = () => {
   return (
     <section className = "album">
       
-      <div className = "album-header">
-        <Eyebrow text = "ALBUM" accent/>
-        <h2>Recuerditos</h2>
-        <p>Algunas fotos bonitas que no quería dejar solo en mi galería</p>
-      </div>
+      <Heading
+        eyebrow = "ALBUM"
+        title = "Recuerditos"
+        description = "Algunas fotos bonitas que no quería dejar solo en mi galería"
+      />
       
       <div className = "album-grid">
         <Photo

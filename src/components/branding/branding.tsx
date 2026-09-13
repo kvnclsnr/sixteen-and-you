@@ -7,13 +7,13 @@ export const Branding = () => {
       
       {/* LOGO */}
       
-      <div className = "logo">
+      <div className = "branding-logo">
         <Icon iconName = {ICONS.HEART}></Icon>
       </div>
       
       {/* NAME */}
       
-      <span className = "name">Sixteen & You</span>
+      <span className = "branding-name">Sixteen & You</span>
       
     </div>
   );

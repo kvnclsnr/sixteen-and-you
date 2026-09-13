@@ -7,7 +7,7 @@ interface PhotoProps {
 
 export const Photo = ({imageName, eyebrow, description, index}: PhotoProps) => {
   return (
-    <div className = {`photo i-${index}`}>
+    <button className = {`photo i-${index}`}>
       
       <img src = {`./photos/${imageName}.jpg`} alt = {description} />
       
@@ -16,6 +16,6 @@ export const Photo = ({imageName, eyebrow, description, index}: PhotoProps) => {
         <p>{description}</p>
       </div>
       
-    </div>
+    </button>
   );
 };

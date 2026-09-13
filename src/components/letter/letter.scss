@@ -1,0 +1,93 @@
+@use "../../styles/abstract/mixins" as *;
+@use "../../styles/abstract/functions" as *;
+@use "../../styles/abstract/variables" as *;
+
+.letter {
+  width: 100%;
+  max-width: 35rem;
+  position: relative;
+  background-color: var(--surface);
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 0 1rem 0 #00000050;
+  
+  .eyebrow {
+    flex: none;
+  }
+  
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  &__tag {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    .icon {
+      --size-icon: 1.125rem;
+      color: var(--accent);
+      height: var(--size-icon);
+      width: var(--size-icon);
+    }
+  }
+  
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  &__footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
+    .icon {
+      --size-icon: 0.875rem;
+      
+      flex: none;
+      
+      color: var(--accent);
+      height: var(--size-icon);
+      width: var(--size-icon);
+    }
+  }
+  
+  &__exit {
+    @include flex-center;
+    
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    
+    transition: background-color 0.25s ease;
+    
+    &:hover {
+      background-color: translucent(var(--text), 10%);
+    }
+    
+    .icon {
+      --size-icon: 1.5rem;
+      
+      color: var(--text-muted);
+      height: var(--size-icon);
+      width: var(--size-icon);
+    }
+  }
+  
+  &__line {
+    height: 1px;
+    width: 100%;
+    background-color: var(--border);
+  }
+}

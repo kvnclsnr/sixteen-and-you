@@ -58,11 +58,7 @@ export const Counter = () => {
   return (
     <section className = "counter">
       
-      {/* EYEBROW */}
-      
       <Eyebrow text = "FALTAN" accent/>
-      
-      {/* TIME WRAPPER */}
       
       <div className = "wrapper">
         {

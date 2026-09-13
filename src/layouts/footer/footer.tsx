@@ -1,12 +1,17 @@
-import { Eyebrow } from "../../components/components";
+import { Heading } from "../../components/components.tsx";
 
 export const Footer = () => {
   return (
     <section className = "footer">
-      <Eyebrow text = "Y FALTA MÁS" accent/>
-      <h2>Esto es el inicio</h2>
-      <p>Nos quedan muchísimas cosas por vivir juntos. Esta página acaba aquí, pero nuestro amor nunca</p>
-      <span className = "lead">Te amomomomomo</span>
+      
+      <Heading
+        eyebrow = "Y FALTA MÁS"
+        title = "Esto es el inicio"
+        description = "Nos quedan muchísimas cosas por vivir juntos. Esta página acaba aquí, pero nuestro amor nunca"
+      />
+      
+      <span className = "footer__lead">Te amomomomomo</span>
+      
     </section>
   );
 };

@@ -1,14 +1,14 @@
-import { Divider, Eyebrow, Player, Song } from "../../components/components.tsx";
+import { Divider, Heading, Player, Song } from "../../components/components.tsx";
 
 export const Playlist = () => {
   return (
     <section className = "playlist">
       
-      <div className = "playlist-header">
-        <Eyebrow text = "CANCIONCITAS" accent/>
-        <h2>Nuestra playlist</h2>
-        <p>Canciones que ahora tienen nuestros nombres</p>
-      </div>
+      <Heading
+        eyebrow = "CANCIONCITAS"
+        title = "Nuestra playlist"
+        description = "Canciones que ahora tienen nuestros nombres"
+      />
       
       <div className = "playlist-wrapper">
         <Player coverName = "us" title = "Te Amo Mucho" artist = "Kevin Celis"/>

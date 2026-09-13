@@ -1,66 +1,137 @@
 import { useState } from "react";
-import { Card, Eyebrow, Modal } from "../../components/components.tsx";
-import { CARD_STATES, ICONS } from "../../utils/constants.ts";
+import { Card, Eyebrow, Heading, Letter, Overlay } from "../../components/components.tsx";
+import { CARD_STATES, START_DATE } from "../../utils/constants.ts";
+import { CARD_CONTENTS } from "../../utils/cardContents.tsx";
+import { getStorageProperty, setStorageProperty } from "../../services/storage.ts";
 
 export const Gifts = () => {
-  const completed: number = 7;
+  const now: Date = new Date("2026-10-02T00:00:00");
   
-  const [ active, setActive ] = useState<number | null>(null);
-  const [ isModalActive, setIsModalActive ] = useState<boolean>(true);
+  const dayIndex = Math.min(Math.floor(
+    (now.getTime() - START_DATE.getTime()) / 8.64e7
+  ), 15);
+  
+  const [ cardActive, setCardActive ] = useState<number | null>(null);
+  const [ isOverlayActive, setIsOverlayActive ] = useState<boolean>(false);
+  
+  const [ cardsOpened, setCardsOpened ] = useState<number>(
+    getStorageProperty("cardsOpened") as number
+  );
+  
+  // FUNCTIONS
+  
+  const getCardState = (index: number) => {
+    let cardState: string = CARD_STATES.LOCKED;
+    
+    if (index < dayIndex) {
+      cardState = CARD_STATES.UNLOCKED;
+    }
+    
+    if (index === dayIndex) {
+      cardState = CARD_STATES.TODAY;
+    }
+    
+    if (index < cardsOpened) {
+      cardState = CARD_STATES.OPENED;
+    }
+    
+    return cardState;
+  };
+  
+  const handleCardOpen = (index: number) => {
+    if (index > cardsOpened) return;
+    
+    if (index === cardsOpened) {
+      const newCardsOpened: number = cardsOpened + 1;
+      
+      setCardsOpened(newCardsOpened);
+      setStorageProperty({cardsOpened: newCardsOpened});
+    }
+    
+    setCardActive(index);
+    setIsOverlayActive(true);
+  };
+  
+  const handleOverlayClose = () => {
+    setIsOverlayActive(false);
+    setCardActive(null);
+  };
   
   return (
     <section className = "gifts">
       
-      <div className = "gifts-header">
-        <div className = "heading">
-          <Eyebrow text = "17 SEP - 2 OCT" accent/>
-          <h2>Dieciséis sobres</h2>
-        </div>
+      <div className = "gifts__header">
         
-        <div className = "stats">
+        <Heading
+          eyebrow = "17 SEP - 2 OCT"
+          title = "Dieciséis sobres"
+        />
+        
+        <div className = "gifts__stats">
           
-          <div className = "dots">
+          <div className = "gifts__progress">
             {
               [...Array(16)].map((_, index) => (
-                <div key = {index} className = {`dot ${index < completed ? "accent" : ""}`}></div>
+                <div
+                  key = {`Dot-${index + 1}`}
+                  className = {`gifts__dot ${index < cardsOpened ? "gifts__dot--accent" : ""}`}
+                />
               ))
             }
           </div>
           
-          <div className = "count">
-            <div className = "num">
-              <strong className = "opened">{completed}</strong>
+          <div className = "gifts__counter">
+            
+            <div className = "gifts__number">
+              
+              <strong className = "opened">{cardsOpened}</strong>
               <span className = "slash">/</span>
               <strong className = "total">16</strong>
+              
             </div>
-            <span className = "tag">DESCUBIERTAS</span>
+            
+            <Eyebrow text = "DESCUBIERTAS"/>
+            
           </div>
           
         </div>
-      </div>
-      
-      <div className = "gifts-grid">
-        <Card state = {CARD_STATES.OPENED} iconName = {ICONS.DARK} title = "Una canción" index = {0} isActive = {active === 0} onClick = {() => { setActive(0); setIsModalActive(true); }}/>
-        <Card state = {CARD_STATES.OPENED} iconName = {ICONS.DARK} title = "Una canción" index = {1} isActive = {active === 1} onClick = {() => { setActive(1); setIsModalActive(true); }}/>
-        <Card state = {CARD_STATES.UNLOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {2} isActive = {active === 2} onClick = {() => { setActive(2); setIsModalActive(true); }}/>
-        <Card state = {CARD_STATES.UNLOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {3} isActive = {active === 3} onClick = {() => { setActive(3); setIsModalActive(true); }}/>
-        <Card state = {CARD_STATES.UNLOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {4} isActive = {active === 4} onClick = {() => { setActive(4); setIsModalActive(true); }}/>
-        <Card state = {CARD_STATES.TODAY} iconName = {ICONS.DARK} title = "Una canción" index = {5} isActive = {active === 5} onClick = {() => { setActive(5); setIsModalActive(true); }}/>
-        <Card state = {CARD_STATES.LOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {6} isActive = {active === 6} onClick = {() => setActive(6)}/>
-        <Card state = {CARD_STATES.LOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {7} isActive = {active === 7} onClick = {() => setActive(7)}/>
-        <Card state = {CARD_STATES.LOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {8} isActive = {active === 8} onClick = {() => setActive(8)}/>
-        <Card state = {CARD_STATES.LOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {9} isActive = {active === 9} onClick = {() => setActive(9)}/>
-        <Card state = {CARD_STATES.LOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {10} isActive = {active === 10} onClick = {() => setActive(10)}/>
-        <Card state = {CARD_STATES.LOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {11} isActive = {active === 11} onClick = {() => setActive(11)}/>
-        <Card state = {CARD_STATES.LOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {12} isActive = {active === 12} onClick = {() => setActive(12)}/>
-        <Card state = {CARD_STATES.LOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {13} isActive = {active === 13} onClick = {() => setActive(13)}/>
-        <Card state = {CARD_STATES.LOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {14} isActive = {active === 14} onClick = {() => setActive(14)}/>
-        <Card state = {CARD_STATES.LOCKED} iconName = {ICONS.DARK} title = "Una canción" index = {15} isActive = {active === 15} onClick = {() => setActive(15)}/>
-      </div>
-      
-      <Modal iconName = "dark" index = {0} isOpen = {isModalActive} onClose = {() => {setIsModalActive(false); setActive(null); }} title = "EL INICIO">
         
-      </Modal>
+      </div>
+      
+      <div className = "gifts__grid">
+        {
+          CARD_CONTENTS.map(({title, iconName}, index) => {
+            
+            const cardState = getCardState(index);
+            
+            return (
+              <Card
+                key = {`Day-${index + 1}`}
+                state = {cardState}
+                title = {title}
+                iconName = {iconName}
+                index = {index}
+                isActive = {cardActive === index}
+                onClick = {() => handleCardOpen(index)}
+              />
+            );
+          })
+        }
+      </div>
+      
+      <Overlay isActive = {isOverlayActive} onClose = {handleOverlayClose} >
+        {
+          cardActive !== null &&
+          <Letter
+            index = {cardActive}
+            title = {CARD_CONTENTS[cardActive].title}
+            iconName = {CARD_CONTENTS[cardActive].iconName}
+            onClose = {handleOverlayClose}
+          >
+            {null}
+          </Letter>
+        }
+      </Overlay>
       
     </section>
   );

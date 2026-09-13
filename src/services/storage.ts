@@ -3,18 +3,20 @@ import { THEMES } from "../utils/constants.ts";
 interface Storage {
   name: string;
   theme: string;
+  cardsOpened: number;
 }
 
 export const storage: Storage = {
   name: "SixteenAndYou",
   theme: THEMES.LIGHT,
+  cardsOpened: 0,
 };
 
 const setLocalStorage = () => {
   localStorage.setItem(storage.name, JSON.stringify(storage));
 };
 
-const getLocalStorage = () => {
+const getLocalStorage = (): Storage | null => {
   const data: string | null = localStorage.getItem(storage.name);
   
   if (data === null) {
@@ -34,7 +36,7 @@ export const getStorageProperty = (property: keyof Storage) => {
 };
 
 export const loadStorage = () => {
-  const data: string | null = getLocalStorage();
+  const data: Storage | null = getLocalStorage();
   
   if (data !== null) {
     Object.assign(storage, data);

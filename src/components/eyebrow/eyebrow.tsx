@@ -6,7 +6,7 @@ interface EyebrowProps {
 export const Eyebrow = ({text, accent = false}: EyebrowProps) => {
   return (
     <span className = {`eyebrow ${accent ? "accent" : ""}`}>
-      {text}
+      { text.toUpperCase() }
     </span>
   );
 };
