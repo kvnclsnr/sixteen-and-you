@@ -64,17 +64,17 @@ export const Player = ({songID, title, artist, currentTime, duration, isPlaying,
       />
       
       <div className = "player-actions">
-        <button onClick = {onPrev}>
+        <button onClick = {onPrev} className = "player__button player__button--prev">
           <Icon iconName = {ICONS.PREV} fill/>
         </button>
-        <button onClick = {onPlay}>
+        <button onClick = {onPlay} className = "player__button player__button--play">
           {
             isPlaying
             ? <Icon iconName = {ICONS.PAUSE} fill/>
             : <Icon iconName = {ICONS.PLAY} fill/>
           }
         </button>
-        <button onClick = {onNext}>
+        <button onClick = {onNext} className = "player__button player__button--next">
           <Icon iconName = {ICONS.NEXT} fill/>
         </button>
       </div>
