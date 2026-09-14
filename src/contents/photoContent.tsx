@@ -64,7 +64,7 @@ export const PHOTO_CONTENT: PhotoContent[] = [
   },
   {
     photo: PHOTOS.NEW_YEAR,
-    date: "ENERO 2026",
+    date: "ENE 2026",
     title: "Año nuevo",
     description: "Empezamos el año juntos y esperando que vengan muchísimos más"
   },

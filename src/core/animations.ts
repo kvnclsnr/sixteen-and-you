@@ -57,3 +57,20 @@ export const animationScaleFadeIn = (element: HTMLElement) => {
     }
   );
 };
+
+export const animationShake = (element: HTMLElement) => {
+  return element.animate(
+    [
+      { transform: "translateX(0)" },
+      { transform: "translateX(-6px)" },
+      { transform: "translateX(6px)" },
+      { transform: "translateX(-4px)" },
+      { transform: "translateX(4px)" },
+      { transform: "translateX(0)" },
+    ],
+    {
+      duration: 350,
+      easing: "ease-in-out",
+    }
+  );
+};

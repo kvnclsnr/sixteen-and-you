@@ -68,7 +68,7 @@ interface CardProps {
 export const Card = ({state, iconName, title, index, isActive, onClick}: CardProps) => {
   return (
     <button
-      className = {`card card--${state} ${isActive ? "card--active" : ""}`}
+      className = {`card card--${state} ${isActive ? "card--active" : ""} card-${index}`}
       onClick = {() => {
         if (state === CARD_STATES.LOCKED) return;
         onClick();

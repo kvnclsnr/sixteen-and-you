@@ -3,6 +3,7 @@ import { Card, Eyebrow, Heading, Letter, Overlay } from "../../components/compon
 import { CARD_STATES, START_DATE } from "../../utils/constants.ts";
 import { CARD_CONTENT } from "../../contents/cardContent.tsx";
 import { getStorageProperty, setStorageProperty } from "../../services/storage.ts";
+import { animationShake } from "../../core/animations.ts";
 
 export const Gifts = () => {
   const now: Date = new Date("2026-09-26T00:00:00");
@@ -39,7 +40,15 @@ export const Gifts = () => {
   };
   
   const handleCardOpen = (index: number) => {
-    if (index > cardsOpened) return;
+    if (index > cardsOpened) {
+      const $card = document.querySelector<HTMLElement>(`.gifts .card.card-${index}`);
+      
+      if (!$card) return;
+      
+      animationShake($card);
+      
+      return;
+    }
     
     if (index === cardsOpened) {
       const newCardsOpened: number = cardsOpened + 1;
@@ -48,13 +57,13 @@ export const Gifts = () => {
       setStorageProperty({cardsOpened: newCardsOpened});
     }
     
-    setCardActive(index);
     setIsOverlayActive(true);
+    setCardActive(index);
   };
   
   const handleOverlayClose = () => {
-    setIsOverlayActive(false);
     setCardActive(null);
+    setIsOverlayActive(false);
   };
   
   return (

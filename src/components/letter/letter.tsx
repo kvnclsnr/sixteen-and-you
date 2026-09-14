@@ -31,8 +31,8 @@ export const Letter = ({children, iconName, title, index, onClose}: LetterProps)
   
   const handleCloseLetter = async () => {
     if (!handleCloseOverlay) return;
-    await handleCloseOverlay();
     
+    await handleCloseOverlay();
     onClose();
   };
   
