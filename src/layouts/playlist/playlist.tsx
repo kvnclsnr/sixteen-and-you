@@ -26,7 +26,7 @@ export const Playlist = () => {
     setCurrentTime(0);
     
     if (isPlaying) {
-      void audio.play();
+      audio.play();
     }
   }, [songActive]);
   

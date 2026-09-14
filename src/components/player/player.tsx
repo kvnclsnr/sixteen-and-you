@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Icon } from "../components";
+import { Eyebrow, Icon } from "../components";
 import { ICONS } from "../../utils/constants";
+import { formatSeconds } from "../../utils/time";
 
 interface PlayerProps {
   songID: string;
@@ -33,35 +34,42 @@ export const Player = ({songID, title, artist, currentTime, duration, isPlaying,
         <span>{artist}</span>
       </div>
       
-      <input
-        className = "player-slider"
-        type = "range"
-        min = {0}
-        max = {duration}
-        value = {isSliding ? slideValue : currentTime}
+      <div className = "player__progress">
+        <input
+          className = "player-slider"
+          type = "range"
+          min = {0}
+          max = {duration}
+          value = {isSliding ? slideValue : currentTime}
+          
+          style = {{
+            background: `linear-gradient(
+              to right,
+              var(--accent) ${progress}%,
+              color-mix(in srgb, var(--text) 10%, transparent) ${progress}%
+            )`
+          }}
+          
+          onPointerDown = {() => {
+            setSlideValue(currentTime);
+            setIsSliding(true);
+          }}
+          
+          onPointerUp = {() => {
+            onSlideEnd(slideValue);
+            setIsSliding(false);
+          }}
+          
+          onChange = {(e) => {
+            setSlideValue(Number(e.currentTarget.value));
+          }}
+        />
         
-        style = {{
-          background: `linear-gradient(
-            to right,
-            var(--accent) ${progress}%,
-            color-mix(in srgb, var(--text) 10%, transparent) ${progress}%
-          )`
-        }}
-        
-        onPointerDown = {() => {
-          setSlideValue(currentTime);
-          setIsSliding(true);
-        }}
-        
-        onPointerUp = {() => {
-          onSlideEnd(slideValue);
-          setIsSliding(false);
-        }}
-        
-        onChange = {(e) => {
-          setSlideValue(Number(e.currentTarget.value));
-        }}
-      />
+        <div className = "player__times">
+          <Eyebrow text = {formatSeconds(currentTime)}/>
+          <Eyebrow text = {formatSeconds(duration)}/>
+        </div>
+      </div>
       
       <div className = "player__actions">
         <button onClick = {onPrev} className = "player__button player__button--prev">

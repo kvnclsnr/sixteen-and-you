@@ -12,8 +12,8 @@
   border-radius: 50%;
   height: 2.5rem;
   width: 2.5rem;
-  top: 1rem;
-  right: 1rem;
+  top: 1.5rem;
+  right: var(--page-padding);
   color: #b2a7bd;
   
   transition: background-color 0.25s ease, color 0.25s ease;

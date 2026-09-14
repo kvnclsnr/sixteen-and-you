@@ -5,6 +5,9 @@ import { ICONS } from "../../utils/constants.ts";
 import { Eyebrow, Icon } from "../components.tsx";
 
 import type React from "react";
+import { OverlayContext } from "../overlay/overlayContext.tsx";
+import { useContext, useEffect, useRef } from "react";
+import { animationScaleFadeIn } from "../../core/animations.ts";
 
 interface LetterProps {
   children: React.ReactNode;
@@ -15,8 +18,26 @@ interface LetterProps {
 }
 
 export const Letter = ({children, iconName, title, index, onClose}: LetterProps) => {
+  
+  const handleCloseOverlay = useContext<(() => void) | null>(OverlayContext);
+  
+  const letterRef = useRef<HTMLImageElement | null>(null);
+  
+  useEffect(() => {
+    if (!letterRef.current) return;
+    
+    animationScaleFadeIn(letterRef.current);
+  }, []);
+  
+  const handleCloseLetter = async () => {
+    if (!handleCloseOverlay) return;
+    await handleCloseOverlay();
+    
+    onClose();
+  };
+  
   return (
-    <section className = "letter" onClick = { (event) => event.stopPropagation() }>
+    <section ref = {letterRef} className = "letter" onClick = { (event) => event.stopPropagation() }>
       
       <div className = "letter__header">
         
@@ -43,7 +64,7 @@ export const Letter = ({children, iconName, title, index, onClose}: LetterProps)
         <div className = "letter__line"></div>
       </div>
       
-      <button className = "letter__exit" onClick = {onClose}>
+      <button className = "letter__exit" onClick = {handleCloseLetter}>
         <Icon iconName = {ICONS.EXIT}></Icon>
       </button>
       

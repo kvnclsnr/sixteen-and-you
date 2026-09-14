@@ -1,6 +1,9 @@
 import { Fragment } from "react/jsx-runtime";
-import { Eyebrow, Icon } from "../components";
-import { ICONS } from "../../utils/constants";
+import { Eyebrow, Icon } from "../components.tsx";
+import { ICONS } from "../../utils/constants.ts";
+import { OverlayContext } from "../overlay/overlayContext.tsx";
+import { useContext, useEffect, useRef } from "react";
+import { animationScaleFadeIn } from "../../core/animations.ts";
 
 interface PhotoViewerProps {
   photo: string;
@@ -11,6 +14,24 @@ interface PhotoViewerProps {
 }
 
 export const PhotoViewer = ({photo, date, title, description, onClose}: PhotoViewerProps) => {
+  
+  const handleCloseOverlay = useContext<(() => void) | null>(OverlayContext);
+  
+  const photoRef = useRef<HTMLImageElement | null>(null);
+  
+  useEffect(() => {
+    if (!photoRef.current) return;
+    
+    animationScaleFadeIn(photoRef.current);
+  }, []);
+  
+  const handleCloseViewer = async () => {
+    if (!handleCloseOverlay) return;
+    await handleCloseOverlay();
+    
+    onClose();
+  };
+  
   return (
     <Fragment>
       
@@ -18,13 +39,13 @@ export const PhotoViewer = ({photo, date, title, description, onClose}: PhotoVie
         className = "outer-viewer-button"
         onClick = {(e) => {
           e.stopPropagation();
-          onClose();
+          handleCloseViewer();
         }}
       >
         <Icon iconName = {ICONS.EXIT}/>
       </button>
       
-      <section className = "photo-viewer" onClick = {(e) => e.stopPropagation()}>
+      <section ref = {photoRef} className = "photo-viewer" onClick = {(e) => e.stopPropagation()}>
         
         <img className = "photo-viewer__photo" src = {`./photos/${photo}.webp`} alt = "" />
         

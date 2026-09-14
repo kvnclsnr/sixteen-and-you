@@ -4,9 +4,6 @@
 
 .card {
   transform-origin: bottom center;
-  transition:
-    transform 400ms ease,
-    opacity 400ms ease;
   
   &--active {
     transform: translateY(1rem);
@@ -26,7 +23,9 @@
   
   transition:
     background-color 0.25s ease,
-    border 0.25s ease;
+    border 0.25s ease,
+    transform 0.35s ease,
+    opacity 0.35s ease;
   
   &__header {
     align-self: stretch;

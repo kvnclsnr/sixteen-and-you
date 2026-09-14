@@ -53,6 +53,13 @@
     }
   }
   
+  &__progress {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  
   &-slider {
     appearance: none;
     width: 100%;
@@ -76,6 +83,11 @@
       transition:
         background-color 0.25s ease;
     }
+  }
+  
+  &__times {
+    display: flex;
+    justify-content: space-between;
   }
   
   &__actions {
