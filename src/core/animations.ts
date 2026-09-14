@@ -11,7 +11,7 @@ export const animationBlurFadeIn = (element: HTMLElement) => {
       },
     ],
     {
-      duration: 250,
+      duration: 350,
       easing: "ease",
       fill: "forwards",
     }
@@ -31,7 +31,7 @@ export const animationBlurFadeOut = (element: HTMLElement) => {
       },
     ],
     {
-      duration: 250,
+      duration: 350,
       easing: "ease",
       fill: "forwards",
     }
@@ -51,7 +51,7 @@ export const animationScaleFadeIn = (element: HTMLElement) => {
       },
     ],
     {
-      duration: 250,
+      duration: 350,
       easing: "ease",
       fill: "forwards",
     }

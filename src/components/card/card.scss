@@ -3,10 +3,10 @@
 @use "../../styles/abstract/variables" as *;
 
 .card {
-  transform-origin: bottom center;
+  transform-origin: center;
   
   &--active {
-    transform: translateY(1rem);
+    transform: scale(0.65);
     opacity: 0;
   }
 }
