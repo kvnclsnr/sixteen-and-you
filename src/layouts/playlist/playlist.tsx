@@ -159,6 +159,7 @@ export const Playlist = () => {
                     artist = {artist}
                     duration = {duration}
                     isActive = {songActive === index}
+                    isPlaying = {songActive === index && isPlaying}
                     onClick = {() => handleSongClick(index)}
                   />
                   

@@ -8,7 +8,7 @@ interface Storage {
 
 export const storage: Storage = {
   name: "SixteenAndYou",
-  theme: THEMES.LIGHT,
+  theme: THEMES.DARK,
   cardsOpened: 0,
 };
 

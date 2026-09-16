@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Card, Eyebrow, Heading, Letter, Overlay } from "../../components/components.tsx";
 import { CARD_STATES, START_DATE } from "../../utils/constants.ts";
 import { CARD_CONTENT } from "../../contents/cardContent.tsx";
 import { getStorageProperty, setStorageProperty } from "../../services/storage.ts";
 import { animationShake } from "../../core/animations.ts";
+import { HomeContext } from "../../pages/home/homeContext.tsx";
 
 export const Gifts = () => {
   const now: Date = new Date("2026-09-26T00:00:00");
@@ -18,6 +19,8 @@ export const Gifts = () => {
   const [ cardsOpened, setCardsOpened ] = useState<number>(
     getStorageProperty("cardsOpened") as number
   );
+  
+  const handleHomeCardsOpened = useContext<(((cards: number) => void) | null)>(HomeContext);
   
   // FUNCTIONS
   
@@ -52,6 +55,10 @@ export const Gifts = () => {
     
     if (index === cardsOpened) {
       const newCardsOpened: number = cardsOpened + 1;
+      
+      if (handleHomeCardsOpened !== null) {
+        handleHomeCardsOpened(newCardsOpened);
+      }
       
       setCardsOpened(newCardsOpened);
       setStorageProperty({cardsOpened: newCardsOpened});
@@ -137,7 +144,7 @@ export const Gifts = () => {
             iconName = {CARD_CONTENT[cardActive].iconName}
             onClose = {handleOverlayClose}
           >
-            {null}
+            {CARD_CONTENT[cardActive].content}
           </Letter>
         }
       </Overlay>

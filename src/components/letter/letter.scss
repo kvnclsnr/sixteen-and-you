@@ -3,6 +3,7 @@
 @use "../../styles/abstract/variables" as *;
 
 .letter {
+  margin-inline: var(--page-padding);
   width: 100%;
   max-width: 35rem;
   position: relative;
@@ -42,6 +43,36 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+  }
+  
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+    h2 {
+      font-size: $t-3xl;
+      font-family: $serif;
+      font-weight: 400;
+      color: var(--text);
+    }
+    
+    p {
+      text-wrap: pretty;
+      font-size: $t-m;
+      font-family: $sans;
+      line-height: 1.5;
+      color: var(--text-muted);
+    }
+    
+    strong {
+      text-wrap: pretty;
+      font-size: $t-l;
+      font-family: $sans;
+      line-height: 1.5;
+      color: var(--text);
+      font-weight: 500;
+    }
   }
   
   &__footer {
@@ -90,5 +121,37 @@
     height: 1px;
     width: 100%;
     background-color: var(--border);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .letter .letter__content {
+    h2 {
+      font-size: $t-2xl;
+    }
+    
+    p {
+      font-size: $t-s;
+    }
+    
+    strong {
+      font-size: $t-m;
+    }
+  }
+}
+
+@media screen and (max-width: 384px) {
+  .letter .letter__content {
+    h2 {
+      font-size: $t-xl;
+    }
+    
+    p {
+      font-size: $t-xs;
+    }
+    
+    strong {
+      font-size: $t-s;
+    }
   }
 }

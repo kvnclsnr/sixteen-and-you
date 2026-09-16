@@ -12,25 +12,25 @@ export const PHOTO_CONTENT: PhotoContent[] = [
     photo: PHOTOS.FIRST_DATE,
     date: "MAY 2025",
     title: "Primera salida",
-    description: "El comienzo de muchas cosas bonitas que todavía nos quedan por vivir"
+    description: "El comienzo de tantas cosas lindas que todavía nos falta por vivir"
   },
   {
     photo: PHOTOS.FILTERS,
     date: "SIEMPRE",
     title: "Filtricos",
-    description: "Esas fotitos con filtros que siempre tomas que me hacen feliz"
+    description: "Me encantan las fotitos con filtros raros que siempre tomas"
   },
   {
     photo: PHOTOS.HER_XV,
     date: "OCT 2025",
     title: "Tus quince",
-    description: "Uno de esos momentos que quiero guardar para siempre"
+    description: "Me hace muy feliz y es muy lindo haberlo compartido contigo"
   },
   {
     photo: PHOTOS.AFTER_SCHOOL,
     date: "NOV 2025",
-    title: "Mi grado",
-    description: "Otro logro que tuve la suerte de poder compartir contigo"
+    title: "Sin vernos",
+    description: "Cuando salí del colegio y pasó un tiempo hasta volver a verte"
   },
   {
     photo: PHOTOS.HAPPY,
@@ -42,19 +42,19 @@ export const PHOTO_CONTENT: PhotoContent[] = [
     photo: PHOTOS.US,
     date: "SIEMPRE",
     title: "Besitos",
-    description: "Me encantan todos los que me das"
+    description: "Me encantan mucho todos los besitos que me das"
   },
   {
     photo: PHOTOS.HER,
     date: "SIEMPRE",
     title: "Mi amorcito",
-    description: "Una foto tuya que, como todas, podría mirar más de un millón de veces"
+    description: "Una fotito tuya que, como todas, podría mirar más de un millón de veces"
   },
   {
     photo: PHOTOS.HUGS,
     date: "SIEMPRE",
     title: "Abracitos",
-    description: "¿Sabías no hay lugar donde prefiera estar más que entre tus brazos?"
+    description: "No hay un lugar donde prefiera estar más que entre tus brazos"
   },
   {
     photo: PHOTOS.TRIP,

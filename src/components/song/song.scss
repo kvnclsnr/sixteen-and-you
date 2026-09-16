@@ -19,11 +19,59 @@
   }
   
   &__cover {
+    border-radius: 0.25rem;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  &__image {
     aspect-ratio: 1 / 1;
     object-fit: cover;
     object-position: center;
     width: 3.5rem;
-    border-radius: 0.25rem;
+    height: auto;
+  }
+  
+  &__playing {
+    position: absolute;
+    inset: 0;
+    background-color: translucent(var(--accent), 25%);
+    backdrop-filter: blur(2px);
+    display: flex;
+    gap: 5%;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    
+    transition: background-color 0.25s ease, opacity 0.25s ease;
+    
+    &--active {
+      opacity: 1;
+    }
+    
+    .item {
+      width: 15%;
+      height: 50%;
+      background-color: var(--text-on-accent);
+      opacity: 0.75;
+      border-radius: 4px;
+      transform-origin: bottom;
+      
+      transition: background-color 0.25s ease;
+      animation: playing 3s ease-in-out infinite;
+      
+      &--1 {
+        animation-delay: 0;
+      }
+      
+      &--2 {
+        animation-delay: -1.5s;
+      }
+      
+      &--3 {
+        animation-delay: -0.75s;
+      }
+    }
   }
   
   &__info {
@@ -63,13 +111,27 @@
   }
 }
 
+@keyframes playing {
+  0% {
+    transform: scaleY(0.25);
+  }
+  
+  50% {
+    transform: scaleY(1);
+  }
+  
+  100% {
+    transform: scaleY(0.25);
+  }
+}
+
 @media screen and (max-width: 576px) {
   .song {
-    &-cover {
+    &__image {
       width: 3rem;
     }
     
-    &-info {
+    &__info {
       gap: 0.25rem;
       h3 {
         font-size: $t-l;
@@ -89,11 +151,11 @@
 @media screen and (max-width: 320px) {
   .song {
     
-    .song-cover {
+    &__cover {
       width: 2.75rem;
     }
     
-    .info {
+    &__info {
       h3 {
         font-size: $t-m;
       }
@@ -103,7 +165,7 @@
       }
     }
     
-    &-duration {
+    &__duration {
       font-size: $t-2xs;
     }
   }

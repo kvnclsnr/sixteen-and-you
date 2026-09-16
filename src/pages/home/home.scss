@@ -1,7 +1,14 @@
-@use "../../styles/abstract/functions" as *;
+@use "../../styles/abstract/variables" as *;
 
 .home {
   display: flex;
   flex-direction: column;
   gap: 4rem;
+  
+  &__coming-soon {
+    font-size: $t-xl;
+    font-family: $serif;
+    font-weight: 400;
+    color: var(--text-subtle);
+  }
 }

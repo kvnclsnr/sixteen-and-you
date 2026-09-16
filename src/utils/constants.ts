@@ -31,6 +31,10 @@ interface Icons {
   PLAY: string;
   
   HEART: string;
+  SUNRISE: string;
+  ALBUM: string;
+  PLAYLIST: string;
+  
   LEFT: string;
   RIGHT: string;
   EXIT: string;
@@ -51,6 +55,10 @@ export const ICONS: Icons = {
   PLAY: "play",
   
   HEART: "heart",
+  SUNRISE: "sunrise",
+  ALBUM: "album",
+  PLAYLIST: "playlist",
+  
   LEFT: "left",
   RIGHT: "right",
   EXIT: "exit",
