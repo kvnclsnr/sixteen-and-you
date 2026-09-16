@@ -4,7 +4,7 @@ import { CARD_STATES, START_DATE } from "../../utils/constants.ts";
 import { CARD_CONTENT } from "../../contents/cardContent.tsx";
 import { getStorageProperty, setStorageProperty } from "../../services/storage.ts";
 import { animationShake } from "../../core/animations.ts";
-import { HomeContext } from "../../pages/home/homeContext.tsx";
+import { HomeContext } from "../../pages/home/HomeContext.tsx";
 
 export const Gifts = () => {
   const now: Date = new Date("2026-09-26T00:00:00");
