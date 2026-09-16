@@ -3,7 +3,7 @@ import { Divider } from "../../components/components.tsx";
 import { Album, Counter, Footer, Gifts, Header, Hero, Playlist } from "../../layouts/layouts";
 import { storage } from "../../services/storage.ts";
 import { useState } from "react";
-import { HomeContext } from "./homeContext.tsx";
+import { HomeContext } from "./HomeContext.tsx";
 
 export const Home = () => {
   const [ cardsOpened, setCardsOpened ] = useState<number | null>(storage.cardsOpened);
