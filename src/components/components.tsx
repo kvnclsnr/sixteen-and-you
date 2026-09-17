@@ -12,7 +12,8 @@ import { Heading } from "./heading/heading.tsx";
 import { Overlay } from "./overlay/overlay.tsx";
 import { PhotoViewer } from "./photoViewer/photoViewer.tsx";
 import { Letter } from "./letter/letter.tsx";
+import { LoveRain } from "./loveRain/loveRain.tsx";
 
 export {
-  Icon, Divider, Branding, ThemeButton, Eyebrow, Time, Card, Photo, Player, Song, Heading, Overlay, PhotoViewer, Letter
+  Icon, Divider, Branding, ThemeButton, Eyebrow, Time, Card, Photo, Player, Song, Heading, Overlay, PhotoViewer, Letter, LoveRain
 };

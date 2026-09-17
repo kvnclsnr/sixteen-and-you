@@ -34,6 +34,7 @@ interface Icons {
   SUNRISE: string;
   ALBUM: string;
   PLAYLIST: string;
+  RAIN: string;
   
   LEFT: string;
   RIGHT: string;
@@ -58,6 +59,7 @@ export const ICONS: Icons = {
   SUNRISE: "sunrise",
   ALBUM: "album",
   PLAYLIST: "playlist",
+  RAIN: "rain",
   
   LEFT: "left",
   RIGHT: "right",
