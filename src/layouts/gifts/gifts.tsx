@@ -7,7 +7,7 @@ import { animationShake } from "../../core/animations.ts";
 import { HomeContext } from "../../pages/home/HomeContext.tsx";
 
 export const Gifts = () => {
-  const now: Date = new Date("2026-09-26T00:00:00");
+  const now: Date = new Date();
   
   const dayIndex = Math.min(Math.floor(
     (now.getTime() - START_DATE.getTime()) / 8.64e7

@@ -3,6 +3,7 @@ import { CARD_STATES, ICONS } from "../../utils/constants.ts";
 import { Eyebrow, Icon } from "../components.tsx";
 import { padNumber } from "../../utils/helpers.ts";
 import { getDateByIndex } from "../../utils/time.ts";
+import { animationShake } from "../../core/animations.ts";
 
 const getStateText = (state: string) => {
   if (state === CARD_STATES.TODAY) {
@@ -70,7 +71,16 @@ export const Card = ({state, iconName, title, index, isActive, onClick}: CardPro
     <button
       className = {`card card--${state} ${isActive ? "card--active" : ""} card-${index}`}
       onClick = {() => {
-        if (state === CARD_STATES.LOCKED) return;
+        if (state === CARD_STATES.LOCKED) {
+          const $card = document.querySelector<HTMLElement>(`.gifts .card.card-${index}`);
+          
+          if (!$card) return;
+          
+          animationShake($card);
+          
+          return;
+        };
+        
         onClick();
       }}
     >
