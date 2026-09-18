@@ -1,4 +1,3 @@
-import { Fragment } from "react/jsx-runtime";
 import { Icon, LoveRain } from "../../components/components";
 import { ICONS } from "../../utils/constants";
 import { useState } from "react";
@@ -26,22 +25,22 @@ export const Day2 = () => {
   ];
   
   return (
-    <Fragment>
+    <div className = "day-2">
       <h2>¿Sabes qué es lo que más me gusta de ti?</h2>
       
       <p>Presiona el botón para descubrirlo</p>
       
-      <button onClick={() => setRainKey(prev => prev + 1)}>
+      <button onClick = {() => setRainKey(prev => prev + 1)}>
         <span>Descubrir</span>
-        <Icon iconName={ICONS.RIGHT} />
+        <Icon iconName = {ICONS.RIGHT}/>
       </button>
       
       <LoveRain
-        key={rainKey}
-        items={loveItems}
-        amount={20}
-        active={rainKey > 0}
+        key = {rainKey}
+        items = {loveItems}
+        amount = {20}
+        active = {rainKey > 0}
       />
-    </Fragment>
+    </div>
   );
 };

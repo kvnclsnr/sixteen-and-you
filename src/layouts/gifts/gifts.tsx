@@ -6,6 +6,8 @@ import { getStorageProperty, setStorageProperty } from "../../services/storage.t
 import { animationShake } from "../../core/animations.ts";
 import { HomeContext } from "../../pages/home/HomeContext.tsx";
 
+// "2026-09-20T00:00:00"
+
 export const Gifts = () => {
   const now: Date = new Date();
   
@@ -136,6 +138,7 @@ export const Gifts = () => {
       </div>
       
       <Overlay isActive = {isOverlayActive} onClose = {handleOverlayClose} >
+        
         {
           cardActive !== null &&
           <Letter
@@ -144,6 +147,7 @@ export const Gifts = () => {
             iconName = {CARD_CONTENT[cardActive].iconName}
             onClose = {handleOverlayClose}
           >
+            
             {CARD_CONTENT[cardActive].content}
           </Letter>
         }

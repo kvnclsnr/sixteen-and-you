@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { createPortal } from "react-dom";
 
 type LoveRainProps = {
@@ -7,35 +7,38 @@ type LoveRainProps = {
   active: boolean
 }
 
-export const LoveRain = ({items, amount = 30, active}: LoveRainProps) => {
+type RainItem = {
+  item: string
+  left: string
+  animationDelay: string
+  animationDuration: string
+}
+
+export const LoveRain = ({ items, amount = 30, active }: LoveRainProps) => {
+  const [rain] = useState<RainItem[]>(() => {
+    return Array.from({ length: amount }, () => ({
+      item: items[Math.floor(Math.random() * items.length)],
+      left: `${Math.random() * 80}%`,
+      animationDelay: `${Math.random() * 1.5}s`,
+      animationDuration: `${2 + Math.random() * 2}s`
+    }));
+  });
   
-  const [rain, setRain] = useState<string[]>([]);
-  
-  useEffect(() => {
-    
-    if (!active) return;
-    
-    const newRain = Array.from({ length: amount }, () => {
-      return items[Math.floor(Math.random() * items.length)];
-    });
-    
-    setRain(newRain);
-    
-  }, [active, amount, items]);
+  if (!active) return null;
   
   return createPortal(
-    <div className="love-rain">
-      {rain.map((item, index) => (
+    <div className = "love-rain">
+      {rain.map((rainItem, index) => (
         <span
-          key={index}
-          className="love-rain__item"
-          style={{
-            left: `${Math.random() * 80}%`,
-            animationDelay: `${Math.random() * 1.5}s`,
-            animationDuration: `${2 + Math.random() * 2}s`
+          key = {index}
+          className = "love-rain__item"
+          style = {{
+            left: rainItem.left,
+            animationDelay: rainItem.animationDelay,
+            animationDuration: rainItem.animationDuration
           }}
         >
-          {item}
+          {rainItem.item}
         </span>
       ))}
     </div>,

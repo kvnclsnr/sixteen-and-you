@@ -32,7 +32,7 @@ export const Home = () => {
           cardsOpened as number >= 4 &&
           <Fragment>
             
-            <Divider/>
+            <Divider id = "album-divider"/>
             <Album/>
             
           </Fragment>

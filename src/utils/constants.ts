@@ -35,6 +35,7 @@ interface Icons {
   ALBUM: string;
   PLAYLIST: string;
   RAIN: string;
+  BLINK: string;
   
   LEFT: string;
   RIGHT: string;
@@ -60,6 +61,7 @@ export const ICONS: Icons = {
   ALBUM: "album",
   PLAYLIST: "playlist",
   RAIN: "rain",
+  BLINK: "blink",
   
   LEFT: "left",
   RIGHT: "right",

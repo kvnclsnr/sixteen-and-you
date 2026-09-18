@@ -8,6 +8,7 @@ import type React from "react";
 import { OverlayContext } from "../overlay/overlayContext.tsx";
 import { useContext, useEffect, useRef } from "react";
 import { animationScaleFadeIn } from "../../core/animations.ts";
+import { LetterContext } from "./letterContext.tsx";
 
 interface LetterProps {
   children: React.ReactNode;
@@ -55,7 +56,9 @@ export const Letter = ({children, iconName, title, index, onClose}: LetterProps)
       </div>
       
       <div className = "letter__content">
-        {children}
+        <LetterContext.Provider value = {handleCloseLetter}>
+          {children}
+        </LetterContext.Provider>
       </div>
       
       <div className = "letter__footer">

@@ -1,9 +1,8 @@
-import { Fragment } from "react/jsx-runtime";
 import { Eyebrow } from "../../components/components";
 
 export const Day1 = () => {
   return (
-    <Fragment>
+    <div className = "day-1">
       <h2>Todo empieza aquí</h2>
       
       <p>Hoy empieza algo que preparé especialmente para ti</p>
@@ -19,6 +18,6 @@ export const Day1 = () => {
       <strong>Bienvenida a tus 16 sorpresas</strong>
       
       <Eyebrow text = "TE AMOOOOO" accent/>
-    </Fragment>
+    </div>
   );
 };
