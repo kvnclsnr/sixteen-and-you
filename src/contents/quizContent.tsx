@@ -26,20 +26,20 @@ export const QUIZ_CONTENT: QuizContent[] = [
     ]
   },
   {
+    prompt: "¿Cuál de estas cosas me hace sentir más amado?",
+    options: [
+      { answer: "Decirme cuánto me amas", isCorrect: false },
+      { answer: "Darme un detalle", isCorrect: false },
+      { answer: "Querer pasar tiempo conmigo", isCorrect: true },
+    ]                                           
+  },
+  {
     prompt: "¿Quién hizo este quiz?",
     options: [
       { answer: "Un ingeniero", isCorrect: false },
       { answer: "El amor de tu vida", isCorrect: false },
       { answer: "Las dos anteriores", isCorrect: true },
     ]
-  },
-  {
-    prompt: "¿Qué plan escogería si pudiera pasar toda una tarde contigo?",
-    options: [
-      { answer: "Comer algo juntos", isCorrect: false },
-      { answer: "Quedarme hablando contigo", isCorrect: false },
-      { answer: "Lo que sea que sea contigo", isCorrect: true },
-    ]                                           
   },
   {
     prompt: "¿En qué pienso todo el día?",
