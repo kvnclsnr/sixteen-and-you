@@ -1,0 +1,22 @@
+@use "../../styles/abstract/variables" as *;
+
+.day-strong {
+  text-wrap: pretty;
+  font-size: $t-l;
+  font-family: $sans;
+  line-height: 1.5;
+  color: var(--text);
+  font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+  .day-strong {
+    font-size: $t-m;
+  }
+}
+
+@media screen and (max-width: 384px) {
+  .day-strong {
+    font-size: $t-s;
+  }
+}

@@ -58,6 +58,28 @@ export const animationScaleFadeIn = (element: HTMLElement) => {
   );
 };
 
+export const animationOpacityFadeIn = (element: HTMLElement) => {
+  return element.animate(
+    [
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 0.35,
+        offset: 0.35,
+      },
+      {
+        opacity: 1,
+      },
+    ],
+    {
+      duration: 500,
+      easing: "ease",
+      fill: "forwards",
+    }
+  );
+};
+
 export const animationShake = (element: HTMLElement) => {
   return element.animate(
     [
@@ -71,6 +93,20 @@ export const animationShake = (element: HTMLElement) => {
     {
       duration: 350,
       easing: "ease-in-out",
+    }
+  );
+};
+
+export const animationPress = (element: HTMLElement) => {
+  return element.animate(
+    [
+      { transform: "scale(1)" },
+      { transform: "scale(0.95)" },
+      { transform: "scale(1)" }
+    ],
+    {
+      duration: 200,
+      easing: "ease-out"
     }
   );
 };

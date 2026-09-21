@@ -93,35 +93,3 @@
     background-color: var(--border);
   }
 }
-
-@media screen and (max-width: 768px) {
-  .letter .letter__content {
-    h2 {
-      font-size: $t-2xl;
-    }
-    
-    p {
-      font-size: $t-s;
-    }
-    
-    strong {
-      font-size: $t-m;
-    }
-  }
-}
-
-@media screen and (max-width: 384px) {
-  .letter .letter__content {
-    h2 {
-      font-size: $t-xl;
-    }
-    
-    p {
-      font-size: $t-xs;
-    }
-    
-    strong {
-      font-size: $t-s;
-    }
-  }
-}

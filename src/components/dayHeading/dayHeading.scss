@@ -1,0 +1,26 @@
+@use "../../styles/abstract/variables" as *;
+
+.day-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  
+  &__title {
+    font-size: $t-3xl;
+    font-family: $serif;
+    font-weight: 400;
+    color: var(--text);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .day-heading__title {
+    font-size: $t-2xl;
+  }
+}
+
+@media screen and (max-width: 384px) {
+  .day-heading__title {
+    font-size: $t-xl;
+  }
+}

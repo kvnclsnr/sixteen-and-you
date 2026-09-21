@@ -1,0 +1,52 @@
+@use "../../styles/abstract/variables" as *;
+@use "../../styles/abstract/functions" as *;
+
+.circle-progress {
+  position: relative;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &__svg {
+    position: absolute;
+    transform: rotate(-90deg);
+  }
+  
+  &__circle {
+    fill: transparent;
+    
+    &--background {
+      stroke: var(--background);
+    }
+    
+    &--progress {
+      stroke: var(--accent);
+      transition: stroke-dashoffset 1s ease-in-out;
+      filter: drop-shadow(0 0 0.25rem translucent(var(--accent), 30%));
+    }
+  }
+  
+  &__content {
+    z-index: 1;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  &__percentage {
+    font-size: $t-xl;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text);
+    font-family: $sans;
+  }
+  
+  &__count {
+    font-size: $t-s;
+    color: var(--text-subtle);
+    font-family: inherit;
+  }
+}

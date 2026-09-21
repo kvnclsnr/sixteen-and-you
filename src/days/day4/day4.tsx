@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Icon } from "../../components/components";
+import { DayButton, DayHeading, DayParagraph, DaySection, DayStrong } from "../../components/components";
 import { ICONS } from "../../utils/constants";
 import { LetterContext } from "../../components/letter/letterContext";
 
@@ -17,21 +17,25 @@ export const Day4 = () => {
   };
   
   return (
-    <div className = "day-4">
-      <h2>Un lugar para nuestros recuerdos</h2>
+    <DaySection day = {4}>
       
-      <p>Hay momentos que pasan y ya. Y hay otros que, por cualquier cosa, uno quiere guardar para siempre</p>
+      <DayHeading title = "Un lugar para nuestros recuerdos"></DayHeading>
       
-      <p>Así que hice un espacio para guardar algunos de los momentos que hemos vivido juntos</p>
+      <DayParagraph>Hay momentos que pasan y ya. Y hay otros que, por cualquier cosa, uno quiere guardar para siempre</DayParagraph>
       
-      <p>Cada foto guarda una historia, un momento o algo de nosotros que me encanta recordar</p>
+      <DayParagraph>Así que hice un espacio para guardar algunos de los momentos que hemos vivido juntos</DayParagraph>
       
-      <strong>-{">"} Psst... toca las fotos</strong>
+      <DayParagraph>Cada foto guarda una historia, un momento o algo de nosotros que me encanta recordar</DayParagraph>
       
-      <button onClick = {onClickLetterButton}>
-        <span>Ver recuerdos</span>
-        <Icon iconName = {ICONS.RIGHT}/>
-      </button>
-    </div>
+      <DayStrong>{"->"} Psst... toca las fotos</DayStrong>
+      
+      <DayButton
+        iconName = {ICONS.RIGHT}
+        onClick = {onClickLetterButton}
+      >
+        Ver recuerdos
+      </DayButton>
+      
+    </DaySection>
   );
 };

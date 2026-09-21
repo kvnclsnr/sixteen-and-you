@@ -1,0 +1,77 @@
+@use "../../styles/abstract/variables" as *;
+@use "../../styles/abstract/functions" as *;
+
+.day-5 {
+  &__transition-shell {
+    overflow: visible;
+    padding-block: 0.25rem;
+    will-change: height, transform;
+  }
+  
+  &__transition-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 0;
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 350ms ease;
+  }
+  
+  // STARTING PAGE
+  
+  &__starting-page .day-button {
+    align-self: flex-start;
+  }
+  
+  // QUIZ PAGE
+  
+  &__quiz-page {
+    
+    .quiz-page__cta-wrapper {
+      margin-top: 0.5rem;
+      display: flex;
+      gap: 0.75rem;
+      justify-content: flex-end;
+    }
+  }
+  
+  // ENDING PAGE
+  
+  &__ending-page {
+    
+    .ending-page__wrapper {
+      align-self: center;
+      width: 100%;
+      max-width: 17.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .ending-page__stats {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .ending-page__info {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      
+      .ending-page__number {
+        font-family: $mono;
+        color: var(--text);
+      }
+    }
+    
+    .ending-page__cta-wrapper {
+      margin-top: 0.5rem;
+      display: flex;
+      gap: 0.75rem;
+      justify-content: flex-end;
+    }
+  }
+  
+}

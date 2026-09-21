@@ -93,7 +93,7 @@
   &__footer {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.5rem;
     
     .icon {
       --size: 1.125rem;
@@ -108,6 +108,7 @@
     span {
       font-size: $t-m;
       font-family: $sans;
+      text-align: left;
       
       transition:
         color 0.25s ease;
@@ -360,6 +361,10 @@
     
     .icon-wrapper {
       display: none;
+    }
+    
+    &__footer {
+      gap: 0.25rem;
     }
   }
 }

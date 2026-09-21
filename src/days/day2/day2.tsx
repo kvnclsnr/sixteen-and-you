@@ -1,4 +1,4 @@
-import { Icon, LoveRain } from "../../components/components";
+import { DayButton, DayHeading, DaySection, LoveRain } from "../../components/components";
 import { ICONS } from "../../utils/constants";
 import { useState } from "react";
 
@@ -25,15 +25,19 @@ export const Day2 = () => {
   ];
   
   return (
-    <div className = "day-2">
-      <h2>¿Sabes qué es lo que más me gusta de ti?</h2>
+    <DaySection day = {2}>
       
-      <p>Presiona el botón para descubrirlo</p>
+      <DayHeading
+        title = "¿Sabes qué es lo que más me gusta de ti?"
+        description = "Presiona el botón para descubrirlo"
+      />
       
-      <button onClick = {() => setRainKey(prev => prev + 1)}>
-        <span>Descubrir</span>
-        <Icon iconName = {ICONS.RIGHT}/>
-      </button>
+      <DayButton
+        iconName = {ICONS.RIGHT}
+        onClick = {() => setRainKey(prev => prev + 1)}
+      >
+        Descubrir
+      </DayButton>
       
       <LoveRain
         key = {rainKey}
@@ -41,6 +45,7 @@ export const Day2 = () => {
         amount = {20}
         active = {rainKey > 0}
       />
-    </div>
+      
+    </DaySection>
   );
 };

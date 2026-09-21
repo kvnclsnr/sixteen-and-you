@@ -24,7 +24,7 @@ export const PHOTO_CONTENT: PhotoContent[] = [
     photo: PHOTOS.HER_XV,
     date: "OCT 2025",
     title: "Tus quince",
-    description: "Me hace muy feliz y es muy lindo haberlo compartido contigo"
+    description: "Me hizo muy feliz, fue muy lindo haber compartido esto contigo"
   },
   {
     photo: PHOTOS.AFTER_SCHOOL,
@@ -36,7 +36,7 @@ export const PHOTO_CONTENT: PhotoContent[] = [
     photo: PHOTOS.HAPPY,
     date: "SIEMPRE",
     title: "Felices",
-    description: "No hace falta mucho para ser felices si estamos juntitos"
+    description: "No nos hace falta mucho para ser felices si estamos juntitos"
   },
   {
     photo: PHOTOS.US,
@@ -60,7 +60,7 @@ export const PHOTO_CONTENT: PhotoContent[] = [
     photo: PHOTOS.TRIP,
     date: "MAY 2026",
     title: "Viajecito",
-    description: "Un pequeño viaje que me encantó y ahora es un recuerdo muy lindo"
+    description: "Un viaje con mi familia que me encantó. Un recuerdo muy lindo para mi"
   },
   {
     photo: PHOTOS.NEW_YEAR,
@@ -72,12 +72,12 @@ export const PHOTO_CONTENT: PhotoContent[] = [
     photo: PHOTOS.CANDLES_DAY,
     date: "DIC 2025",
     title: "Velitas",
-    description: "Fue una noche linda, con muchos deseos y un recuerdo más para nosotros"
+    description: "Una noche linda, con varios deseos y un recuerdo más para nosotros"
   },
   {
     photo: PHOTOS.FOODS,
     date: "SIEMPRE",
     title: "Comiditas",
-    description: "Me encanta compartir cualquier cosita de comer porque contigo se vuelve especial"
+    description: "Ir a comer juntos es una de las cosas que mas me encanta hacer"
   },
 ];

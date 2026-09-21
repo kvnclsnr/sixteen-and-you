@@ -36,10 +36,12 @@ interface Icons {
   PLAYLIST: string;
   RAIN: string;
   BLINK: string;
+  QUIZ: string;
   
   LEFT: string;
   RIGHT: string;
   EXIT: string;
+  CHECK: string;
 }
 
 export const ICONS: Icons = {
@@ -62,10 +64,12 @@ export const ICONS: Icons = {
   PLAYLIST: "playlist",
   RAIN: "rain",
   BLINK: "blink",
+  QUIZ: "quiz",
   
   LEFT: "left",
   RIGHT: "right",
   EXIT: "exit",
+  CHECK: "check",
 };
 
 // STATES
