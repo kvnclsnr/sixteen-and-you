@@ -9,7 +9,7 @@ import { HomeContext } from "../../pages/home/HomeContext.tsx";
 // "2026-09-20T00:00:00"
 
 export const Gifts = () => {
-  const now: Date = new Date("2026-09-24T00:00:00");
+  const now: Date = new Date();
   
   const dayIndex = Math.min(Math.floor(
     (now.getTime() - START_DATE.getTime()) / 8.64e7
