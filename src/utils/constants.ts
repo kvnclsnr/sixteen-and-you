@@ -38,6 +38,7 @@ interface Icons {
   BLINK: string;
   QUIZ: string;
   GET_BACK: string;
+  SONG: string;
   
   LEFT: string;
   RIGHT: string;
@@ -67,6 +68,7 @@ export const ICONS: Icons = {
   BLINK: "blink",
   QUIZ: "quiz",
   GET_BACK: "getback",
+  SONG: "song",
   
   LEFT: "left",
   RIGHT: "right",

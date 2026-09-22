@@ -42,14 +42,14 @@ export const Home = () => {
           cardsOpened as number >= 8 &&
           <Fragment>
             
-            <Divider/>
+            <Divider id = "playlist-divider"/>
             <Playlist/>
             
           </Fragment>
         }
         
         {
-          cardsOpened as number < 8 &&
+          cardsOpened as number < 12 &&
           <Fragment>
             
             <Divider/>

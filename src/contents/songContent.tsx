@@ -42,6 +42,4 @@ export const SONG_CONTENT: SongContent[] = [
     artist: "Mora",
     duration: 135,
   },
-
-
 ];

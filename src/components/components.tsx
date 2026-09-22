@@ -20,9 +20,10 @@ import { DayStrong } from "./dayStrong/dayStrong.tsx";
 import { DayButton } from "./dayButton/dayButton.tsx";
 import { DaySection } from "./daySection/daySection.tsx";
 import { CircleProgress } from "./circleProgress/circleProgress.tsx";
+import { Audio } from "./audio/audio.tsx";
 
 export {
   Icon, Divider, Branding, ThemeButton, Eyebrow, Time, Card, Photo,
   Player, Song, Heading, Overlay, PhotoViewer, Letter, LoveRain, Quiz,
-  DayParagraph, DayHeading, DayStrong, DayButton, DaySection, CircleProgress
+  DayParagraph, DayHeading, DayStrong, DayButton, DaySection, CircleProgress, Audio
 };
