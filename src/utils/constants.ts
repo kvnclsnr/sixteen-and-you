@@ -37,6 +37,7 @@ interface Icons {
   RAIN: string;
   BLINK: string;
   QUIZ: string;
+  GET_BACK: string;
   
   LEFT: string;
   RIGHT: string;
@@ -65,6 +66,7 @@ export const ICONS: Icons = {
   RAIN: "rain",
   BLINK: "blink",
   QUIZ: "quiz",
+  GET_BACK: "getback",
   
   LEFT: "left",
   RIGHT: "right",
