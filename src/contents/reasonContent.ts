@@ -1,0 +1,18 @@
+export const reasonContent: string[] = [
+  "Porque me encanta cómo se siente estar contigo",
+  "Porque me gusta la confianza que nos tenemos",
+  "Porque contigo puedo ser yo",
+  "Porque contigo hasta los momentos más sencillos se sienten especiales",
+  "Porque me encanta verte feliz",
+  "Porque siempre encuentras la forma de hacerme reír",
+  "Porque nunca me canso de hablar contigo",
+  "Porque me encanta cómo me haces sentir amado",
+  "Porque me gusta saber que puedo contarte cualquier cosa",
+  "Porque haces que mis días sean mucho más lindos",
+  "Porque me gusta saber cada vez más cosas de ti",
+  "Porque siempre te haces extrañar",
+  "Porque has estado conmigo en muchos momentos de mi vida",
+  "Porque me encanta todo lo que hemos llegado a ser juntos",
+  "Porque no hemos sido perfectos, y aun así nos amamos",
+  "Porque eres tú",
+];

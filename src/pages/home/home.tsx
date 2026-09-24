@@ -1,6 +1,6 @@
 import { Fragment } from "react/jsx-runtime";
 import { Divider } from "../../components/components.tsx";
-import { Album, Counter, Footer, Gifts, Header, Hero, Playlist } from "../../layouts/layouts";
+import { Album, Counter, Footer, Gifts, Header, Hero, Playlist, Reasons } from "../../layouts/layouts";
 import { storage } from "../../services/storage.ts";
 import { useState } from "react";
 import { HomeContext } from "./HomeContext.tsx";
@@ -49,7 +49,17 @@ export const Home = () => {
         }
         
         {
-          cardsOpened as number < 12 &&
+          cardsOpened as number >= 12 &&
+          <Fragment>
+            
+            <Divider id = "reasons-divider"/>
+            <Reasons/>
+            
+          </Fragment>
+        }
+        
+        {
+          cardsOpened as number < 16 &&
           <Fragment>
             
             <Divider/>

@@ -5,5 +5,6 @@ import { Gifts } from "./gifts/gifts";
 import { Album } from "./album/album";
 import { Footer } from "./footer/footer";
 import { Playlist } from "./playlist/playlist";
+import { Reasons } from "./reasons/reasons";
 
-export { Header, Hero, Counter, Gifts, Album, Playlist, Footer };
+export { Header, Hero, Counter, Gifts, Album, Playlist, Footer, Reasons };

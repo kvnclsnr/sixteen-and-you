@@ -50,43 +50,43 @@ export const CARD_CONTENT: CardContent[] = [
     content: <Day8/>
   },
   {
-    title: "i",
-    iconName: ICONS.DARK,
+    title: "none",
+    iconName: ICONS.EXIT,
     content: <Day1/>
   },
   {
-    title: "j",
-    iconName: ICONS.DARK,
+    title: "none",
+    iconName: ICONS.EXIT,
     content: <Day1/>
   },
   {
-    title: "k",
-    iconName: ICONS.DARK,
+    title: "none",
+    iconName: ICONS.EXIT,
     content: <Day1/>
   },
   {
-    title: "l",
-    iconName: ICONS.DARK,
+    title: "16 Razones",
+    iconName: ICONS.CARDS,
     content: <Day1/>
   },
   {
-    title: "m",
-    iconName: ICONS.DARK,
+    title: "none",
+    iconName: ICONS.EXIT,
     content: <Day1/>
   },
   {
-    title: "n",
-    iconName: ICONS.DARK,
+    title: "none",
+    iconName: ICONS.EXIT,
     content: <Day1/>
   },
   {
-    title: "o",
-    iconName: ICONS.DARK,
+    title: "none",
+    iconName: ICONS.EXIT,
     content: <Day1/>
   },
   {
-    title: "p",
-    iconName: ICONS.DARK,
+    title: "none",
+    iconName: ICONS.EXIT,
     content: <Day1/>
   },
 ];

@@ -19,7 +19,8 @@ export const ThemeButton = () => {
   return (
     <button className = "theme-button" onClick = {
       () => setTheme((prev: string) => getOtherTheme(prev))
-    }>
+    }
+    >
       {
         theme === THEMES.DARK
         ? <Icon iconName = {ICONS.LIGHT}/>

@@ -39,9 +39,11 @@ interface Icons {
   QUIZ: string;
   GET_BACK: string;
   SONG: string;
+  CARDS: string;
   
   LEFT: string;
   RIGHT: string;
+  LEFT_RIGHT: string;
   EXIT: string;
   CHECK: string;
 }
@@ -69,9 +71,11 @@ export const ICONS: Icons = {
   QUIZ: "quiz",
   GET_BACK: "getback",
   SONG: "song",
+  CARDS: "cards",
   
   LEFT: "left",
   RIGHT: "right",
+  LEFT_RIGHT: "left-right",
   EXIT: "exit",
   CHECK: "check",
 };

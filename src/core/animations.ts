@@ -65,15 +65,29 @@ export const animationOpacityFadeIn = (element: HTMLElement) => {
         opacity: 0,
       },
       {
-        opacity: 0.35,
-        offset: 0.35,
-      },
-      {
         opacity: 1,
       },
     ],
     {
-      duration: 500,
+      duration: 350,
+      easing: "ease",
+      fill: "forwards",
+    }
+  );
+};
+
+export const animationOpacityFadeOut = (element: HTMLElement) => {
+  return element.animate(
+    [
+      {
+        opacity: 1,
+      },
+      {
+        opacity: 0,
+      },
+    ],
+    {
+      duration: 350,
       easing: "ease",
       fill: "forwards",
     }

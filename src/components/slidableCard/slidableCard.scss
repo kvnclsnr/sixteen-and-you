@@ -1,0 +1,72 @@
+@use "../../styles/abstract/variables" as *;
+
+.slidable-card {
+  --padding: 1.5rem;
+  
+  position: relative;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  padding: var(--padding);
+  
+  height: 27.5rem;
+  
+  width: 100%;
+  max-width: 20rem;
+  
+  background-color: var(--surface);
+  border-radius: 1.5rem;
+  box-shadow: inset 0 0 0 1px var(--border);
+  
+  user-select: none;
+  touch-action: none;
+  
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  
+  &__index {
+    position: absolute;
+    
+    top: calc(var(--padding) - 0.25rem);
+    right: var(--padding);
+    
+    font-size: $t-7xl;
+    font-family: $serif;
+    font-weight: 400;
+    color: var(--accent);
+    
+    opacity: 0.2;
+  }
+  
+  &__header .icon {
+    --icon-size: 1.25rem;
+    
+    height: var(--icon-size);
+    width: var(--icon-size);
+    fill: var(--accent);
+    stroke: var(--accent);
+  }
+  
+  &__text {
+    font-size: $t-2xl;
+    font-family: $serif;
+    line-height: 1.125;
+    font-weight: 400;
+    color: var(--text);
+    text-wrap: pretty;
+    text-align: left;
+  }
+  
+  &__footer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    color: var(--text-subtle);
+  }
+}
