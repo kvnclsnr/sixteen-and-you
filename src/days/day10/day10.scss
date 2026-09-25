@@ -1,0 +1,53 @@
+@use "../../styles/abstract/mixins" as *;
+@use "../../styles/abstract/functions" as *;
+@use "../../styles/abstract/variables" as *;
+
+.day-10 {
+  
+  
+  &__love-button {
+    margin-block: 1rem;
+    
+    align-self: center;
+    @include flex-center;
+    
+    --button-size: 7.5rem;
+    
+    width: var(--button-size);
+    height: var(--button-size);
+    border-radius: 50%;
+    
+    background: var(--accent); 
+    color: var(--text-on-accent);
+    
+    font-family: $sans;
+    font-size: $t-l;
+    font-weight: 600;
+    
+    box-shadow:
+      0 0.25rem 0.5rem 0 translucent(var(--accent), 30%),
+      inset 0 0 calc(var(--button-size) / 3) 0 translucent(var(--text-on-accent), 30%);
+  }
+  
+  &__footer-text {
+    align-self: center;
+    
+    display: flex;
+    gap: 0.5rem;
+    
+    font-family: $mono;
+    font-size: $t-s;
+    letter-spacing: 0.5px;
+    color: var(--text-subtle);
+    
+    transition: color 0.25s ease;
+  }
+  
+  &__counter {
+    color: var(--accent);
+  }
+  
+  &__ly {
+    color: var(--accent);
+  }
+}

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mensajes · Sixteen-And-You</title>
+
+  <style>
+    :root {
+      --background: #f8f6f9;
+      --surface: #ffffff;
+      --surface-hover: #faf8fc;
+
+      --text: #1a1520;
+      --muted: #726678;
+
+      --accent: #a561d6;
+      --accent-light: #f0e4f7;
+
+      --border: #e9e2ec;
+
+      --shadow:
+        0 12px 35px #1a15200f;
+
+      --radius: 1.25rem;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+
+      background: var(--background);
+      color: var(--text);
+
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    }
+
+    .page {
+      width: min(900px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 4rem 0;
+    }
+
+    .header {
+      margin-bottom: 2.5rem;
+    }
+
+    .eyebrow {
+      margin-bottom: 0.75rem;
+
+      color: var(--accent);
+
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    h1 {
+      margin-bottom: 0.75rem;
+
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .description {
+      max-width: 550px;
+
+      color: var(--muted);
+
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+
+      margin-bottom: 1.5rem;
+    }
+
+    .users-count {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .refresh-button {
+      padding: 0.65rem 1rem;
+
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+
+      background: var(--surface);
+      color: var(--text);
+
+      font: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+
+      cursor: pointer;
+
+      transition:
+        transform 160ms ease,
+        background 160ms ease,
+        border-color 160ms ease;
+    }
+
+    .refresh-button:hover {
+      background: var(--surface-hover);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .refresh-button:active {
+      transform: scale(0.97);
+    }
+
+    .users {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .user-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+
+      padding: 1.25rem 1.5rem;
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      min-width: 0;
+    }
+
+    .avatar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 3rem;
+      height: 3rem;
+
+      flex-shrink: 0;
+
+      border-radius: 50%;
+
+      background: var(--accent-light);
+      color: var(--accent);
+
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .username {
+      overflow: hidden;
+
+      font-size: 1rem;
+      font-weight: 700;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .user-label {
+      margin-top: 0.2rem;
+
+      color: var(--muted);
+
+      font-size: 0.8rem;
+    }
+
+    .counter {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+
+      flex-shrink: 0;
+    }
+
+    .heart {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 2.5rem;
+      height: 2.5rem;
+
+      border-radius: 50%;
+
+      background: var(--accent-light);
+
+      font-size: 1rem;
+    }
+
+    .counter-value {
+      color: var(--accent);
+
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .counter-label {
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .state {
+      padding: 2.5rem 1rem;
+
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+
+      color: var(--muted);
+
+      text-align: center;
+    }
+
+    .state.error {
+      color: #b42318;
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 2.5rem 0;
+      }
+
+      .user-card {
+        padding: 1rem;
+
+        align-items: center;
+      }
+
+      .counter {
+        gap: 0.4rem;
+      }
+
+      .counter-value {
+        font-size: 1.25rem;
+      }
+
+      .counter-label {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <header class="header">
+      <p class="eyebrow">SIXTEEN-AND-YOU · PANEL</p>
+
+      <h1>Lo que me han mandado</h1>
+
+      <p class="description">
+        Un pequeño registro de todas las veces que dejaron un "TE AMO" por aquí.
+      </p>
+    </header>
+
+    <div class="toolbar">
+      <span class="users-count" id="users-count">
+        Cargando usuarios...
+      </span>
+
+      <button
+        class="refresh-button"
+        id="refresh-button"
+        type="button">
+        Actualizar
+      </button>
+    </div>
+
+    <section
+      class="users"
+      id="users">
+      <div class="state">
+        Cargando...
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module">
+    import { createClient } from "@supabase/supabase-js";
+
+const sbURL = import.meta.env.VITE_SUPABASE_URL;
+const sbKEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+
+    const supabase = createClient(
+      sbURL,
+      sbKEY
+    );
+
+    const usersContainer = document.querySelector("#users");
+    const usersCount = document.querySelector("#users-count");
+    const refreshButton = document.querySelector("#refresh-button");
+
+    const getInitial = (username) => {
+      return username
+        .trim()
+        .charAt(0)
+        .toUpperCase();
+    };
+
+    const renderUsers = (users) => {
+      if (users.length === 0) {
+        usersContainer.innerHTML = `
+          <div class="state">
+            Todavía no hay usuarios.
+          </div>
+        `;
+
+        usersCount.textContent = "0 usuarios";
+
+        return;
+      }
+
+      usersCount.textContent =
+        `${users.length} ${users.length === 1 ? "usuario" : "usuarios"}`;
+
+      usersContainer.innerHTML = users
+        .map((user) => `
+          <article class="user-card">
+
+            <div class="user-info">
+
+              <div class="avatar">
+                ${getInitial(user.username)}
+              </div>
+
+              <div>
+                <p class="username">
+                  ${user.username}
+                </p>
+
+                <p class="user-label">
+                  Usuario registrado
+                </p>
+              </div>
+
+            </div>
+
+            <div class="counter">
+
+              <div class="heart">
+                💜
+              </div>
+
+              <div>
+                <span class="counter-value">
+                  ${user.love_counter}
+                </span>
+
+                <span class="counter-label">
+                  TE AMO
+                </span>
+              </div>
+
+            </div>
+
+          </article>
+        `)
+        .join("");
+    };
+
+    const loadUsers = async () => {
+      usersContainer.innerHTML = `
+        <div class="state">
+          Cargando...
+        </div>
+      `;
+
+      const { data, error } = await supabase
+        .from("users")
+        .select("username, love_counter")
+        .order("love_counter", {
+          ascending: false
+        });
+
+      if (error) {
+        console.error(error);
+
+        usersContainer.innerHTML = `
+          <div class="state error">
+            No se pudieron cargar los usuarios.
+          </div>
+        `;
+
+        usersCount.textContent = "Error al cargar";
+
+        return;
+      }
+
+      renderUsers(data);
+    };
+
+    refreshButton.addEventListener(
+      "click",
+      loadUsers
+    );
+
+    loadUsers();
+  </script>
+
+</body>
+</html>

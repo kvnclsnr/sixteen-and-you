@@ -41,6 +41,7 @@ interface Icons {
   SONG: string;
   CARDS: string;
   HALF: string;
+  PRESS: string;
   
   LEFT: string;
   RIGHT: string;
@@ -74,6 +75,7 @@ export const ICONS: Icons = {
   SONG: "song",
   CARDS: "cards",
   HALF: "half",
+  PRESS: "press",
   
   LEFT: "left",
   RIGHT: "right",

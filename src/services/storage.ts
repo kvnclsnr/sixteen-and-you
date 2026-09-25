@@ -2,14 +2,18 @@ import { THEMES } from "../utils/constants.ts";
 
 interface Storage {
   name: string;
+  user: string | null;
   theme: string;
   cardsOpened: number;
+  loveCounter: number;
 }
 
 export const storage: Storage = {
   name: "SixteenAndYou",
+  user: null,
   theme: THEMES.DARK,
   cardsOpened: 0,
+  loveCounter: 0,
 };
 
 const setLocalStorage = () => {
