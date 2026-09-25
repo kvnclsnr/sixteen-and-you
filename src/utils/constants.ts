@@ -40,6 +40,7 @@ interface Icons {
   GET_BACK: string;
   SONG: string;
   CARDS: string;
+  HALF: string;
   
   LEFT: string;
   RIGHT: string;
@@ -72,6 +73,7 @@ export const ICONS: Icons = {
   GET_BACK: "getback",
   SONG: "song",
   CARDS: "cards",
+  HALF: "half",
   
   LEFT: "left",
   RIGHT: "right",

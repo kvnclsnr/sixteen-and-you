@@ -1,6 +1,6 @@
 import type React from "react";
 import { ICONS } from "../utils/constants";
-import { Day1, Day2, Day3, Day4, Day5, Day6, Day7, Day8 } from "../days/days";
+import { Day1, Day2, Day3, Day4, Day5, Day6, Day7, Day8, Day9 } from "../days/days";
 
 interface CardContent {
   title: string;
@@ -10,7 +10,7 @@ interface CardContent {
 
 export const CARD_CONTENT: CardContent[] = [
   {
-    title: "El Comienzo",
+    title: "El comienzo",
     iconName: ICONS.SUNRISE,
     content: <Day1/>
   },
@@ -30,13 +30,13 @@ export const CARD_CONTENT: CardContent[] = [
     content: <Day4/>
   },
   {
-    title: "Mini quiz",
-    iconName: ICONS.QUIZ,
+    title: "Si pudiera",
+    iconName: ICONS.GET_BACK,
     content: <Day5/>
   },
   {
-    title: "Si pudiera",
-    iconName: ICONS.GET_BACK,
+    title: "Mini quiz",
+    iconName: ICONS.QUIZ,
     content: <Day6/>
   },
   {
@@ -45,14 +45,14 @@ export const CARD_CONTENT: CardContent[] = [
     content: <Day7/>
   },
   {
-    title: "Tu Playlist",
+    title: "Tu playlist",
     iconName: ICONS.PLAYLIST,
     content: <Day8/>
   },
   {
-    title: "none",
-    iconName: ICONS.EXIT,
-    content: <Day1/>
+    title: "La mitad",
+    iconName: ICONS.HALF,
+    content: <Day9/>
   },
   {
     title: "none",
