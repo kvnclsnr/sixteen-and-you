@@ -29,8 +29,9 @@ export const Day10 = () => {
       
       <DayHeading
         title = "Hoy te toca a ti"
-        description = "Hay algo que siempre me gusta escuchar de ti, así que esta vez pensé que fueras tú la que me diera el regalo"
       />
+      
+      <DayParagraph>Hay algo que siempre me gusta escuchar de ti, así que esta vez pensé que fueras tú la que me diera el regalo</DayParagraph>
       
       <DayParagraph>Puedo ver todos los "TE AMO" que me mandes</DayParagraph>
       

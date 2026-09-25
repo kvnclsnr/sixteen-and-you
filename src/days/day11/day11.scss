@@ -1,0 +1,30 @@
+.day-11 {
+  &__carousel {
+    align-self: center;
+    
+    display: flex;
+    
+    gap: 1rem;
+    padding: 1.5rem calc((100% - 80%) / 2);
+    
+    width: 100%;
+    
+    overflow-x: auto;
+    
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    
+    border-radius: 1rem;
+    
+    background-color: var(--background);
+    
+    border: 1px solid var(--border);
+    
+    & > * {
+      flex: 0 0 100% !important;
+      text-align: center !important;
+      
+      scroll-snap-align: center;
+    }
+  }
+}

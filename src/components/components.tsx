@@ -26,5 +26,6 @@ import { SlidableCard } from "./slidableCard/slidableCard.tsx";
 export {
   Icon, Divider, Branding, ThemeButton, Eyebrow, Time, Card, Photo,
   Player, Song, Heading, Overlay, PhotoViewer, Letter, LoveRain, Quiz,
-  DayParagraph, DayHeading, DayStrong, DayButton, DaySection, CircleProgress, Audio, SlidableCard
+  DayParagraph, DayHeading, DayStrong, DayButton, DaySection,
+  CircleProgress, Audio, SlidableCard
 };
