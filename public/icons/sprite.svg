@@ -195,6 +195,23 @@
     <path d = "M2 17h1a1 1 0 0 0 1 -1v-8a1 1 0 0 0 -1 -1h-1" />
   </symbol>
   
+  <!-- SEED -->
+  <symbol id = "icon-seed" viewBox = "0 0 24 24">
+    <path d = "M12 10a6 6 0 0 0 -6 -6h-3v2a6 6 0 0 0 6 6h3" />
+    <path d = "M12 14a6 6 0 0 1 6 -6h3v1a6 6 0 0 1 -6 6h-3" />
+    <path d = "M12 20l0 -10" />
+  </symbol>
+  
+  <!-- SCHEDULE -->
+  <symbol id = "icon-schedule" viewBox = "0 0 24 24">
+    <path d = "M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+    <path d = "M14 18a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+    <path d = "M15 3v4" />
+    <path d = "M7 3v4" />
+    <path d = "M3 11h16" />
+    <path d = "M18 16.496v1.504l1 1" />
+  </symbol>
+  
   
   <!-- LEFT -->
   <symbol id = "icon-left" viewBox = "0 0 24 24">
@@ -216,6 +233,16 @@
     <path d = "M10 7l10 0" />
     <path d = "M8 13l-4 4l4 4" />
     <path d = "M4 17l9 0" />
+  </symbol>
+  
+  <!-- TAILNESS LEFT -->
+  <symbol id = "icon-tailness-left" viewBox = "0 0 24 24">
+    <path d = "M15 6l-6 6l6 6" />
+  </symbol>
+  
+  <!-- TAILNESS RIGHT -->
+  <symbol id = "icon-tailness-right" viewBox = "0 0 24 24">
+    <path d = "M9 6l6 6l-6 6" />
   </symbol>
   
   <!-- EXIT -->

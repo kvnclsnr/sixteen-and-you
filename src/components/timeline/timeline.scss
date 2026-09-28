@@ -1,0 +1,89 @@
+@use "../../styles/abstract/mixins" as *;
+@use "../../styles/abstract/functions" as *;
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  
+  gap: 1rem;
+  
+  &__header {
+    display: flex;
+    flex-direction: column;
+    
+    gap: 0.5rem;
+  }
+  
+  &__progress {
+    display: flex;
+    
+    gap: 0.5rem;
+    
+    width: 100%;
+  }
+  
+  &__time {
+    --time-height: 0.25rem;
+    
+    flex: auto;
+    
+    height: var(--time-height);
+    
+    border-radius: calc(var(--time-height) / 2);
+    
+    background-color: translucent(var(--text), 10%);
+    
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+    
+    &--active {
+      background-color: var(--accent);
+      box-shadow: 0 0.125rem 0.5rem 0 translucent(var(--accent), 30%);
+    }
+  }
+  
+  &__actions {
+    display: flex;
+    
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 100%;
+  }
+  
+  &__cta {
+    --button-size: 2rem;
+    
+    @include flex-center;
+    
+    border-radius: 50%;
+    
+    height: var(--button-size);
+    width: var(--button-size);
+    
+    color: var(--text-muted);
+    
+    transition: background-color 0.25s ease;
+    
+    &:hover {
+      background-color: translucent(var(--text), 10%);
+    }
+    
+    .icon {
+      --icon-size: 1.5rem;
+      
+      height: var(--icon-size);
+      width: var(--icon-size);
+    }
+  }
+  
+  &__text {
+    max-width: 32ch;
+    
+    align-self: center;
+    
+    text-align: center;
+    text-wrap: pretty;
+    
+    line-height: 1.5;
+  }
+}

@@ -22,10 +22,11 @@ import { DaySection } from "./daySection/daySection.tsx";
 import { CircleProgress } from "./circleProgress/circleProgress.tsx";
 import { Audio } from "./audio/audio.tsx";
 import { SlidableCard } from "./slidableCard/slidableCard.tsx";
+import { Timeline } from "./timeline/timeline.tsx";
 
 export {
   Icon, Divider, Branding, ThemeButton, Eyebrow, Time, Card, Photo,
   Player, Song, Heading, Overlay, PhotoViewer, Letter, LoveRain, Quiz,
   DayParagraph, DayHeading, DayStrong, DayButton, DaySection,
-  CircleProgress, Audio, SlidableCard
+  CircleProgress, Audio, SlidableCard, Timeline
 };

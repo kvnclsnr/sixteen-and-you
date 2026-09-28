@@ -43,10 +43,14 @@ interface Icons {
   HALF: string;
   PRESS: string;
   CAROUSEL: string;
+  SEED: string;
+  SCHEDULE: string;
   
   LEFT: string;
   RIGHT: string;
   LEFT_RIGHT: string;
+  TAILNESS_LEFT: string;
+  TAILNESS_RIGHT: string;
   EXIT: string;
   CHECK: string;
 }
@@ -78,10 +82,14 @@ export const ICONS: Icons = {
   HALF: "half",
   PRESS: "press",
   CAROUSEL: "carousel",
+  SEED: "seed",
+  SCHEDULE: "schedule",
   
   LEFT: "left",
   RIGHT: "right",
   LEFT_RIGHT: "left-right",
+  TAILNESS_LEFT: "tailness-left",
+  TAILNESS_RIGHT: "tailness-right",
   EXIT: "exit",
   CHECK: "check",
 };
