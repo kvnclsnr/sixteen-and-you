@@ -1,6 +1,6 @@
 import type React from "react";
 import { ICONS } from "../utils/constants";
-import { Day1, Day10, Day11, Day12, Day13, Day14, Day2, Day3, Day4, Day5, Day6, Day7, Day8, Day9 } from "../days/days";
+import { Day1, Day10, Day11, Day12, Day13, Day14, Day15, Day16, Day2, Day3, Day4, Day5, Day6, Day7, Day8, Day9 } from "../days/days";
 
 interface CardContent {
   title: string;
@@ -80,13 +80,13 @@ export const CARD_CONTENT: CardContent[] = [
     content: <Day14/>
   },
   {
-    title: "none",
-    iconName: ICONS.EXIT,
-    content: <Day1/>
+    title: "Ya casi",
+    iconName: ICONS.DOTS,
+    content: <Day15/>
   },
   {
-    title: "none",
-    iconName: ICONS.EXIT,
-    content: <Day1/>
+    title: "¡Tu día!",
+    iconName: ICONS.CAKE,
+    content: <Day16/>
   },
 ];

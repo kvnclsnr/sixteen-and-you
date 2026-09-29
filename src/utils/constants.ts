@@ -45,6 +45,8 @@ interface Icons {
   CAROUSEL: string;
   SEED: string;
   SCHEDULE: string;
+  DOTS: string;
+  CAKE: string;
   
   LEFT: string;
   RIGHT: string;
@@ -84,6 +86,8 @@ export const ICONS: Icons = {
   CAROUSEL: "carousel",
   SEED: "seed",
   SCHEDULE: "schedule",
+  DOTS: "dots",
+  CAKE: "cake",
   
   LEFT: "left",
   RIGHT: "right",

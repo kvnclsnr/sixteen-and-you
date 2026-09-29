@@ -3,8 +3,6 @@
 @use "../../styles/abstract/variables" as *;
 
 .card {
-  
-  
   &--active {
     position: relative;
     transform: scale(0.9);

@@ -31,7 +31,7 @@
     
     border-radius: calc(var(--time-height) / 2);
     
-    background-color: translucent(var(--text), 10%);
+    background-color: var(--border);
     
     transition: background-color 0.25s ease, box-shadow 0.25s ease;
     

@@ -124,3 +124,38 @@ export const animationPress = (element: HTMLElement) => {
     }
   );
 };
+
+const animationSlide = (
+  element: HTMLElement,
+  startX: string,
+  endX: string,
+  startOpacity: number,
+  endOpacity: number,
+  direction: "in" | "out"
+) => {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  
+  return element.animate(
+    [
+      { transform: `translate3d(${startX}, 0, 0)`, opacity: startOpacity },
+      { transform: `translate3d(${endX}, 0, 0)`, opacity: endOpacity },
+    ],
+    {
+      duration: prefersReducedMotion ? 1 : direction === "in" ? 250 : 250,
+      easing: "ease",
+      fill: "forwards",
+    }
+  );
+};
+
+export const animationSlideOutToLeft = (element: HTMLElement) =>
+  animationSlide(element, "0%", "-17.5%", 1, 0.1, "out");
+
+export const animationSlideOutToRight = (element: HTMLElement) =>
+  animationSlide(element, "0%", "17.5%", 1, 0.1, "out");
+
+export const animationSlideInFromLeft = (element: HTMLElement) =>
+  animationSlide(element, "-17.5%", "0%", 0.1, 1, "in");
+
+export const animationSlideInFromRight = (element: HTMLElement) =>
+  animationSlide(element, "17.5%", "0%", 0.1, 1, "in");
